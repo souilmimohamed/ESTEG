@@ -15,5 +15,11 @@ namespace ESTEG
             else
                 return false;
         }
+        public static string ReplaceSpaces(this string value)
+        {
+            return value.Replace("\u00A0", "")
+                .Replace(" ", "")
+                .Replace("\t", "");
+        }
     }
 }

@@ -45,20 +45,20 @@
             tabPage1 = new TabPage();
             textBox1 = new TextBox();
             tabPage2 = new TabPage();
-            DEVIS = new DataGridView();
+            textBox2 = new TextBox();
+            devis = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            dataGridViewButtonColumn1 = new DataGridViewButtonColumn();
-            dataGridViewButtonColumn2 = new DataGridViewButtonColumn();
-            dataGridViewButtonColumn3 = new DataGridViewButtonColumn();
-            textBox2 = new TextBox();
+            see_d = new DataGridViewButtonColumn();
+            delete_d = new DataGridViewButtonColumn();
+            pdf_d = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)factures).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)DEVIS).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)devis).BeginInit();
             SuspendLayout();
             // 
             // factures
@@ -67,6 +67,7 @@
             factures.AllowUserToDeleteRows = false;
             factures.AllowUserToResizeColumns = false;
             factures.AllowUserToResizeRows = false;
+            factures.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             factures.BackgroundColor = Color.White;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
@@ -101,7 +102,7 @@
             factures.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             factures.RowHeadersWidth = 51;
             factures.RowTemplate.Height = 35;
-            factures.Size = new Size(961, 530);
+            factures.Size = new Size(998, 530);
             factures.TabIndex = 0;
             factures.CellContentClick += factures_CellContentClick;
             // 
@@ -183,7 +184,7 @@
             tabControl1.Location = new Point(0, 12);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(983, 626);
+            tabControl1.Size = new Size(1017, 626);
             tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -193,7 +194,7 @@
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(975, 593);
+            tabPage1.Size = new Size(1009, 593);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "FACTURE";
             tabPage1.UseVisualStyleBackColor = true;
@@ -210,21 +211,31 @@
             // tabPage2
             // 
             tabPage2.Controls.Add(textBox2);
-            tabPage2.Controls.Add(DEVIS);
+            tabPage2.Controls.Add(devis);
             tabPage2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             tabPage2.Location = new Point(4, 29);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(975, 593);
+            tabPage2.Size = new Size(1009, 593);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "DEVIS";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // DEVIS
+            // textBox2
             // 
-            DEVIS.AllowUserToAddRows = false;
-            DEVIS.AllowUserToDeleteRows = false;
-            DEVIS.BackgroundColor = Color.White;
+            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox2.Location = new Point(8, 15);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(217, 34);
+            textBox2.TabIndex = 2;
+            textBox2.TextChanged += textBox2_TextChanged;
+            // 
+            // devis
+            // 
+            devis.AllowUserToAddRows = false;
+            devis.AllowUserToDeleteRows = false;
+            devis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            devis.BackgroundColor = Color.White;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = SystemColors.Control;
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
@@ -232,9 +243,9 @@
             dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            DEVIS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            DEVIS.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DEVIS.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewButtonColumn1, dataGridViewButtonColumn2, dataGridViewButtonColumn3 });
+            devis.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            devis.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            devis.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, see_d, delete_d, pdf_d });
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = SystemColors.Window;
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -243,16 +254,16 @@
             dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            DEVIS.DefaultCellStyle = dataGridViewCellStyle5;
-            DEVIS.Location = new Point(7, 56);
-            DEVIS.Margin = new Padding(3, 4, 3, 4);
-            DEVIS.Name = "DEVIS";
-            DEVIS.ReadOnly = true;
-            DEVIS.RowHeadersWidth = 51;
-            DEVIS.RowTemplate.Height = 35;
-            DEVIS.Size = new Size(961, 531);
-            DEVIS.TabIndex = 1;
-            DEVIS.CellContentClick += DEVIS_CellContentClick;
+            devis.DefaultCellStyle = dataGridViewCellStyle5;
+            devis.Location = new Point(7, 56);
+            devis.Margin = new Padding(3, 4, 3, 4);
+            devis.Name = "devis";
+            devis.ReadOnly = true;
+            devis.RowHeadersWidth = 51;
+            devis.RowTemplate.Height = 35;
+            devis.Size = new Size(996, 531);
+            devis.TabIndex = 1;
+            devis.CellContentClick += DEVIS_CellContentClick;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -287,56 +298,49 @@
             dataGridViewTextBoxColumn4.ReadOnly = true;
             dataGridViewTextBoxColumn4.Width = 200;
             // 
-            // dataGridViewButtonColumn1
+            // see_d
             // 
-            dataGridViewButtonColumn1.HeaderText = "VOIR";
-            dataGridViewButtonColumn1.MinimumWidth = 6;
-            dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            dataGridViewButtonColumn1.ReadOnly = true;
-            dataGridViewButtonColumn1.Resizable = DataGridViewTriState.True;
-            dataGridViewButtonColumn1.SortMode = DataGridViewColumnSortMode.Automatic;
-            dataGridViewButtonColumn1.Text = "Voir";
-            dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
-            dataGridViewButtonColumn1.Width = 125;
+            see_d.HeaderText = "VOIR";
+            see_d.MinimumWidth = 6;
+            see_d.Name = "see_d";
+            see_d.ReadOnly = true;
+            see_d.Resizable = DataGridViewTriState.True;
+            see_d.SortMode = DataGridViewColumnSortMode.Automatic;
+            see_d.Text = "Voir";
+            see_d.UseColumnTextForButtonValue = true;
+            see_d.Width = 125;
             // 
-            // dataGridViewButtonColumn2
+            // delete_d
             // 
-            dataGridViewButtonColumn2.HeaderText = "SUPPRIMER";
-            dataGridViewButtonColumn2.MinimumWidth = 6;
-            dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
-            dataGridViewButtonColumn2.ReadOnly = true;
-            dataGridViewButtonColumn2.Resizable = DataGridViewTriState.True;
-            dataGridViewButtonColumn2.SortMode = DataGridViewColumnSortMode.Automatic;
-            dataGridViewButtonColumn2.Text = "Supp.";
-            dataGridViewButtonColumn2.UseColumnTextForButtonValue = true;
-            dataGridViewButtonColumn2.Width = 125;
+            delete_d.HeaderText = "SUPPRIMER";
+            delete_d.MinimumWidth = 6;
+            delete_d.Name = "delete_d";
+            delete_d.ReadOnly = true;
+            delete_d.Resizable = DataGridViewTriState.True;
+            delete_d.SortMode = DataGridViewColumnSortMode.Automatic;
+            delete_d.Text = "Supp.";
+            delete_d.ToolTipText = "Supp.";
+            delete_d.UseColumnTextForButtonValue = true;
+            delete_d.Width = 125;
             // 
-            // dataGridViewButtonColumn3
+            // pdf_d
             // 
-            dataGridViewButtonColumn3.HeaderText = "PDF";
-            dataGridViewButtonColumn3.MinimumWidth = 6;
-            dataGridViewButtonColumn3.Name = "dataGridViewButtonColumn3";
-            dataGridViewButtonColumn3.ReadOnly = true;
-            dataGridViewButtonColumn3.Resizable = DataGridViewTriState.True;
-            dataGridViewButtonColumn3.SortMode = DataGridViewColumnSortMode.Automatic;
-            dataGridViewButtonColumn3.Text = "PDF";
-            dataGridViewButtonColumn3.UseColumnTextForButtonValue = true;
-            dataGridViewButtonColumn3.Width = 125;
-            // 
-            // textBox2
-            // 
-            textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(8, 15);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(217, 34);
-            textBox2.TabIndex = 2;
-            textBox2.TextChanged += textBox2_TextChanged;
+            pdf_d.HeaderText = "PDF";
+            pdf_d.MinimumWidth = 6;
+            pdf_d.Name = "pdf_d";
+            pdf_d.ReadOnly = true;
+            pdf_d.Resizable = DataGridViewTriState.True;
+            pdf_d.SortMode = DataGridViewColumnSortMode.Automatic;
+            pdf_d.Text = "PDF";
+            pdf_d.ToolTipText = "PDF";
+            pdf_d.UseColumnTextForButtonValue = true;
+            pdf_d.Width = 125;
             // 
             // FactureList
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(995, 639);
+            ClientSize = new Size(1029, 639);
             Controls.Add(tabControl1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FactureList";
@@ -349,7 +353,7 @@
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)DEVIS).EndInit();
+            ((System.ComponentModel.ISupportInitialize)devis).EndInit();
             ResumeLayout(false);
         }
 
@@ -366,15 +370,15 @@
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private DataGridView DEVIS;
+        private DataGridView devis;
+        private TextBox textBox1;
+        private TextBox textBox2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private DataGridViewButtonColumn dataGridViewButtonColumn2;
-        private DataGridViewButtonColumn dataGridViewButtonColumn3;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private DataGridViewButtonColumn see_d;
+        private DataGridViewButtonColumn delete_d;
+        private DataGridViewButtonColumn pdf_d;
     }
 }

@@ -28,7 +28,7 @@ namespace ESTEG
                     document.THT = tht;
                     document.TTVA = ttva;
                     document.TTTC = tht + ttva + document.Timbre;
-                    document.Letters = $"{NumberToWords(tht + ttva + document.Timbre)}";
+                    document.Letters = $"{Infrastructure.Helpers.Helper.NumberToWords(tht + ttva + document.Timbre)}";
 
                     var report = new Infrastructure.Reportig.FastReport();
                     var file = report.GenerateReport(document, articles);
@@ -61,7 +61,7 @@ namespace ESTEG
                         Quantite = Convert.ToInt32(row.Cells[1].Value),
                         Designation = row.Cells[2].Value.ToString(),
                         Unite = row.Cells[3].Value.ToString(),
-                        PUHT = Convert.ToInt32(row.Cells[4].Value.ToString().Replace("\u00A0", "")),
+                        PUHT = Convert.ToInt32(row.Cells[7].Value.ToString().ReplaceSpaces()),
                     };
                     Article art = new Article();
                     art.setArticle(article);
@@ -90,7 +90,10 @@ namespace ESTEG
             {
                 if (facturePositions.Rows.Count <= 0)
                     MessageBox.Show(this, "Veullier saisir des articles", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else if (typeCbx.Text.StringIsNullOrEmptyOrWhiteSpaces() || timbreCbx.Text.StringIsNullOrEmptyOrWhiteSpaces() || clientTxt.Text.StringIsNullOrEmptyOrWhiteSpaces() || AdresseTxt.Text.StringIsNullOrEmptyOrWhiteSpaces() || mfTxt.Text.StringIsNullOrEmptyOrWhiteSpaces())
+                else if (typeCbx.Text.StringIsNullOrEmptyOrWhiteSpaces() || timbreCbx.Text.StringIsNullOrEmptyOrWhiteSpaces()
+                    || clientTxt.Text.StringIsNullOrEmptyOrWhiteSpaces()
+                    || AdresseTxt.Text.StringIsNullOrEmptyOrWhiteSpaces()
+                    || mfTxt.Text.StringIsNullOrEmptyOrWhiteSpaces())
                     MessageBox.Show(this, "Veullier saisir les champs de l'entete", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
@@ -148,7 +151,9 @@ namespace ESTEG
                 article.Unite,
                 article.PUHT.ToString("#,#"),
                 tvaCbx.Text,
-                article.PTHT.ToString("#,#")
+                article.PTHT.ToString("#,#"),
+                article.PUHT.ToString(),
+                article.PTHT.ToString()
                 );
             CalculerTotaux();
             if (!idTxt.Text.StringIsNullOrEmptyOrWhiteSpaces())
@@ -165,6 +170,8 @@ namespace ESTEG
                     row.Cells[3].Value = article.Unite;
                     row.Cells[4].Value = article.PUHT.ToString("#,#");
                     row.Cells[6].Value = (article.PTHT).ToString("#,#");
+                    row.Cells[7].Value = (article.PUHT).ToString();
+                    row.Cells[8].Value = (article.PTHT).ToString();
                 }
             }
             CalculerTotaux();
@@ -176,12 +183,15 @@ namespace ESTEG
                 var tht = 0;
                 var split = tvaCbx.Text.Split("%");
                 var tvaValue = Convert.ToInt32(split[0]);
-                var timbre = Convert.ToInt32(timbreCbx.Text) * 1000;
+                var timbre = Convert.ToInt32(timbreCbx.Text);
                 for (int i = 0; i <= facturePositions.Rows.Count - 1; i++)
                 {
-                    var puhtText = facturePositions.Rows[i].Cells[6].Value;
-                    puhtText = puhtText.ToString().Replace("\u00A0", "");
-                    tht += Convert.ToInt32(puhtText);
+                    var puhtText = facturePositions.Rows[i].Cells[7].Value;
+                    var qtyText = facturePositions.Rows[i].Cells[1].Value;
+                    puhtText = puhtText.ToString().ReplaceSpaces();
+                    var qty = Convert.ToInt32(qtyText);
+                    var puht = Convert.ToInt32(puhtText);
+                    tht += puht * qty;
                 }
                 thtLbl.Text = tht.ToString("#,#");
                 var tva = (int)((tht * tvaValue) / 100);
@@ -205,13 +215,13 @@ namespace ESTEG
             facturePositions.Rows.Clear();
             facturePositions.Refresh();
             projetsTxt.Text = document.Projets;
+            bcTxt.Text = document.BC;
             foreach (var item in articles)
             {
                 SetArticle(item);
             }
             CalculerTotaux();
             idTxt.Text = id.ToString();
-            var tht = Convert.ToInt32(tttcLbl.Text.Replace("\u00A0", ""));
         }
         public void InsertFacture()
         {
@@ -226,6 +236,8 @@ namespace ESTEG
                 MF = mfTxt.Text,
                 TVA = tvaCbx.Text,
                 Projets = projetsTxt.Text,
+                Timbre = Convert.ToInt32(timbreCbx.Text),
+                BC = bcTxt.Text,
             };
             Infrastructure.Data.Access.DocumentAccess.Insert(entete);
             for (int i = 0; i <= facturePositions.Rows.Count - 1; i++)
@@ -236,9 +248,9 @@ namespace ESTEG
                     Quantite = Convert.ToInt32(row.Cells[1].Value.ToString()),
                     Designation = row.Cells[2].Value.ToString(),
                     Unite = row.Cells[3].Value.ToString(),
-                    PUHT = Convert.ToInt32(row.Cells[4].Value.ToString().Replace("\u00A0", "")),
+                    PUHT = Convert.ToInt32(row.Cells[7].Value.ToString().ReplaceSpaces()),
                     TVA = row.Cells[5].Value.ToString(),
-                    PTHT = Convert.ToInt32(row.Cells[6].Value.ToString().Replace("\u00A0", "")),
+                    PTHT = Convert.ToInt32(row.Cells[8].Value.ToString().ReplaceSpaces()),
                     IdFacture = Infrastructure.Data.Access.DocumentAccess.GetMaxId(typeCbx.Text.ToLower()),
                 };
                 Infrastructure.Data.Access.ArticlesAccess.Insert(article);
@@ -259,6 +271,7 @@ namespace ESTEG
                 TVA = tvaCbx.Text,
                 Id = Convert.ToInt32(idTxt.Text),
                 Projets = projetsTxt.Text,
+                BC = bcTxt.Text,
             };
             Infrastructure.Data.Access.DocumentAccess.Update(entete);
             foreach (DataGridViewRow row in facturePositions.Rows)
@@ -269,9 +282,9 @@ namespace ESTEG
                     Quantite = Convert.ToInt32(row.Cells[1].Value.ToString()),
                     Designation = row.Cells[2].Value.ToString(),
                     Unite = row.Cells[3].Value.ToString(),
-                    PUHT = Convert.ToInt32(row.Cells[4].Value.ToString().Replace("\u00A0", "")),
+                    PUHT = Convert.ToInt32(row.Cells[7].Value.ToString().ReplaceSpaces()),
                     TVA = row.Cells[5].Value.ToString(),
-                    PTHT = Convert.ToInt32(row.Cells[6].Value.ToString().Replace("\u00A0", "")),
+                    PTHT = Convert.ToInt32(row.Cells[8].Value.ToString().ReplaceSpaces()),
                     IdFacture = Convert.ToInt32(idTxt.Text),
                 };
                 Infrastructure.Data.Access.ArticlesAccess.Update(article);
@@ -296,66 +309,9 @@ namespace ESTEG
             facturePositions.Refresh();
             idTxt.Clear();
             numFactureLbl.Text = $"/{DateTime.Now.Year}";
+            bcTxt.Clear();
         }
-        public static string NumberToWords(int number)
-        {
-            if (number == 0)
-                return "zero";
 
-            if (number < 0)
-                return "moin " + NumberToWords(Math.Abs(number));
-
-            string words = "";
-
-            if ((number / 1000000) > 0)
-            {
-                words += NumberToWords(number / 1000000) + " mille ";
-                number %= 1000000;
-            }
-
-            if ((number / 1000) > 0)
-            {
-                words += NumberToWords(number / 1000) + "dinars ";
-                number %= 1000;
-            }
-
-            if ((number / 100) > 0)
-            {
-                words += NumberToWords(number / 100) + " cent ";
-                number %= 100;
-            }
-
-            if (number > 0)
-            {
-                //if (words != "")
-                //    words += "and ";
-
-                var unitsMap = new[] { "zero", "", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf" };
-                var tensMap = new[] { "zero", "dix", "vingt", "trente", "quarante", "cinquante", "soixante", "soixante-dix", "quatre-vingts", "quatre-vingt-dix" };
-
-                if (number < 20)
-                    words += unitsMap[number];
-                else
-                {
-                    words += tensMap[number / 10];
-                    if ((number % 10) > 0)
-                        words += "-" + unitsMap[number % 10];
-                }
-            }
-            if (words.Contains("dinars"))
-            {
-                var split = words.Split("dinars");
-                if (split.Length > 1)
-                {
-                    if (split[1] == " ")
-                        split[1] = "et zero millimes";
-                    else
-                        split[1] = $"et {split[1]} millimes";
-                }
-                words = $"{split[0]} dinars {split[1]}";
-            }
-            return words;
-        }
         #endregion
     }
 }

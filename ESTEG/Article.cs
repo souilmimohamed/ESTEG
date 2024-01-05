@@ -55,6 +55,13 @@ namespace ESTEG
                 e.Handled = true;
             }
         }
+        private void puhtTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
         #region Helpers
         public void setArticle(ArticleEntity article)
         {

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             pictureBox1 = new PictureBox();
             newBtn = new Button();
             deleteBtn = new Button();
@@ -44,6 +44,8 @@
             puht = new DataGridViewTextBoxColumn();
             tva = new DataGridViewTextBoxColumn();
             ptht = new DataGridViewTextBoxColumn();
+            puht_h = new DataGridViewTextBoxColumn();
+            ptht_h = new DataGridViewTextBoxColumn();
             edit = new DataGridViewButtonColumn();
             delete = new DataGridViewButtonColumn();
             button1 = new Button();
@@ -78,6 +80,8 @@
             idTxt = new TextBox();
             projetsTxt = new TextBox();
             label1 = new Label();
+            label13 = new Label();
+            bcTxt = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)facturePositions).BeginInit();
             panel1.SuspendLayout();
@@ -158,40 +162,40 @@
             facturePositions.AllowUserToDeleteRows = false;
             facturePositions.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             facturePositions.BackgroundColor = Color.White;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.Control;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            facturePositions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            facturePositions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             facturePositions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            facturePositions.Columns.AddRange(new DataGridViewColumn[] { id, qte, designation, unite, puht, tva, ptht, edit, delete });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle8.Padding = new Padding(1);
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            facturePositions.DefaultCellStyle = dataGridViewCellStyle8;
-            facturePositions.Location = new Point(232, 360);
+            facturePositions.Columns.AddRange(new DataGridViewColumn[] { id, qte, designation, unite, puht, tva, ptht, puht_h, ptht_h, edit, delete });
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.Padding = new Padding(1);
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            facturePositions.DefaultCellStyle = dataGridViewCellStyle5;
+            facturePositions.Location = new Point(233, 406);
             facturePositions.Margin = new Padding(3, 4, 3, 4);
             facturePositions.Name = "facturePositions";
             facturePositions.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = SystemColors.Control;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            facturePositions.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            facturePositions.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             facturePositions.RowHeadersWidth = 51;
             facturePositions.RowTemplate.Height = 35;
-            facturePositions.Size = new Size(1172, 642);
+            facturePositions.Size = new Size(1172, 653);
             facturePositions.TabIndex = 6;
             facturePositions.CellContentClick += facturePositions_CellContentClick;
             // 
@@ -252,6 +256,24 @@
             ptht.ReadOnly = true;
             ptht.Width = 125;
             // 
+            // puht_h
+            // 
+            puht_h.HeaderText = "puht_h";
+            puht_h.MinimumWidth = 6;
+            puht_h.Name = "puht_h";
+            puht_h.ReadOnly = true;
+            puht_h.Visible = false;
+            puht_h.Width = 125;
+            // 
+            // ptht_h
+            // 
+            ptht_h.HeaderText = "ptht_h";
+            ptht_h.MinimumWidth = 6;
+            ptht_h.Name = "ptht_h";
+            ptht_h.ReadOnly = true;
+            ptht_h.Visible = false;
+            ptht_h.Width = 125;
+            // 
             // edit
             // 
             edit.HeaderText = "MODIFIER";
@@ -281,7 +303,7 @@
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button1.Image = Properties.Resources.icons8_add_25__1_;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(232, 291);
+            button1.Location = new Point(232, 337);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
             button1.Size = new Size(306, 61);
@@ -293,6 +315,8 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(bcTxt);
+            panel1.Controls.Add(label13);
             panel1.Controls.Add(typeCbx);
             panel1.Controls.Add(numFactureLbl);
             panel1.Controls.Add(dateDte);
@@ -301,7 +325,7 @@
             panel1.Location = new Point(232, 3);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(306, 138);
+            panel1.Size = new Size(306, 169);
             panel1.TabIndex = 8;
             // 
             // typeCbx
@@ -379,7 +403,7 @@
             timbreCbx.DropDownStyle = ComboBoxStyle.DropDownList;
             timbreCbx.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             timbreCbx.FormattingEnabled = true;
-            timbreCbx.Items.AddRange(new object[] { "0", "1" });
+            timbreCbx.Items.AddRange(new object[] { "0", "1000" });
             timbreCbx.Location = new Point(268, 128);
             timbreCbx.Margin = new Padding(3, 4, 3, 4);
             timbreCbx.Name = "timbreCbx";
@@ -391,7 +415,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(228, 136);
+            label12.Location = new Point(228, 128);
             label12.Name = "label12";
             label12.Size = new Size(34, 28);
             label12.TabIndex = 14;
@@ -414,7 +438,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(3, 140);
+            label11.Location = new Point(3, 131);
             label11.Name = "label11";
             label11.Size = new Size(56, 28);
             label11.TabIndex = 12;
@@ -490,7 +514,7 @@
             panel3.Controls.Add(thtLbl);
             panel3.Controls.Add(label8);
             panel3.Controls.Add(label9);
-            panel3.Location = new Point(1069, 1010);
+            panel3.Location = new Point(1069, 1067);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(335, 165);
@@ -592,7 +616,7 @@
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button2.Image = Properties.Resources.icons8_save_25;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(232, 1010);
+            button2.Location = new Point(232, 1067);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
             button2.Size = new Size(306, 61);
@@ -605,7 +629,7 @@
             // 
             idTxt.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             idTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            idTxt.Location = new Point(3, 1141);
+            idTxt.Location = new Point(3, 1198);
             idTxt.Margin = new Padding(3, 4, 3, 4);
             idTxt.Name = "idTxt";
             idTxt.Size = new Size(35, 34);
@@ -616,7 +640,7 @@
             // 
             projetsTxt.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             projetsTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            projetsTxt.Location = new Point(232, 196);
+            projetsTxt.Location = new Point(233, 239);
             projetsTxt.Margin = new Padding(3, 4, 3, 4);
             projetsTxt.Multiline = true;
             projetsTxt.Name = "projetsTxt";
@@ -627,17 +651,36 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(231, 164);
+            label1.Location = new Point(233, 207);
             label1.Name = "label1";
             label1.Size = new Size(100, 28);
             label1.TabIndex = 14;
             label1.Text = "PROJETS:";
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.Location = new Point(6, 131);
+            label13.Name = "label13";
+            label13.Size = new Size(42, 28);
+            label13.TabIndex = 17;
+            label13.Text = "BC:";
+            // 
+            // bcTxt
+            // 
+            bcTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            bcTxt.Location = new Point(42, 128);
+            bcTxt.Margin = new Padding(3, 4, 3, 4);
+            bcTxt.Name = "bcTxt";
+            bcTxt.Size = new Size(250, 34);
+            bcTxt.TabIndex = 15;
+            // 
             // Facture
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1411, 1183);
+            ClientSize = new Size(1411, 1240);
             Controls.Add(label1);
             Controls.Add(projetsTxt);
             Controls.Add(idTxt);
@@ -705,6 +748,9 @@
         private Label tvaValueLbl;
         private ComboBox timbreCbx;
         private Label label12;
+        private ComboBox typeCbx;
+        private TextBox projetsTxt;
+        private Label label1;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn qte;
         private DataGridViewTextBoxColumn designation;
@@ -712,10 +758,11 @@
         private DataGridViewTextBoxColumn puht;
         private DataGridViewTextBoxColumn tva;
         private DataGridViewTextBoxColumn ptht;
+        private DataGridViewTextBoxColumn puht_h;
+        private DataGridViewTextBoxColumn ptht_h;
         private DataGridViewButtonColumn edit;
         private DataGridViewButtonColumn delete;
-        private ComboBox typeCbx;
-        private TextBox projetsTxt;
-        private Label label1;
+        private TextBox bcTxt;
+        private Label label13;
     }
 }

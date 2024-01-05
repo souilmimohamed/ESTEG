@@ -19,6 +19,7 @@ namespace Infrastructure.Data.Entities
         public string Letters { get; set; }
         public int Timbre { get; set; }
         public string Projets { get; set; }
+        public string BC { get; set; }
         public DocumentEntity()
         {
 
@@ -35,6 +36,7 @@ namespace Infrastructure.Data.Entities
             TVA = Convert.ToString(dataRow["TVA"]);
             Timbre = Convert.ToInt32(dataRow["Timbre"]);
             Projets = Convert.ToString(dataRow["Projets"]);
+            BC = Convert.ToString(dataRow["BC"]);
         }
     }
 }

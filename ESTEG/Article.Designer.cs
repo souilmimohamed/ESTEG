@@ -98,6 +98,7 @@
             puhtTxt.Name = "puhtTxt";
             puhtTxt.Size = new Size(161, 34);
             puhtTxt.TabIndex = 4;
+            puhtTxt.KeyPress += puhtTxt_KeyPress;
             // 
             // validateBtn
             // 

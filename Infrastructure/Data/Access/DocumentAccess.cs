@@ -57,7 +57,7 @@ namespace Infrastructure.Data.Access
                 sqlConnection.Open();
                 var sqlTransaction = sqlConnection.BeginTransaction();
 
-                string query = "INSERT INTO [Document] ([Type],[Num],[DateDocument],[Client],[Adresse],[MF],[TVA],[Timbre],[Projets]) VALUES (@Type,@Num,@DateDocument,@Client,@Adresse,@MF,@TVA,@Timbre,@Projets); ";
+                string query = "INSERT INTO [Document] ([Type],[Num],[DateDocument],[Client],[Adresse],[MF],[TVA],[Timbre],[Projets],[BC]) VALUES (@Type,@Num,@DateDocument,@Client,@Adresse,@MF,@TVA,@Timbre,@Projets,@BC); ";
 
                 using (var sqlCommand = new OleDbCommand(query, sqlConnection, sqlTransaction))
                 {
@@ -71,6 +71,7 @@ namespace Infrastructure.Data.Access
                     sqlCommand.Parameters.AddWithValue("TVA", item.TVA == null ? (object)DBNull.Value : item.TVA);
                     sqlCommand.Parameters.AddWithValue("Timbre", item.Timbre == null ? (object)DBNull.Value : item.Timbre);
                     sqlCommand.Parameters.AddWithValue("Projets", item.Projets == null ? (object)DBNull.Value : item.Projets);
+                    sqlCommand.Parameters.AddWithValue("BC", item.BC == null ? (object)DBNull.Value : item.BC);
 
                     var result = sqlCommand.ExecuteScalar();
                     response = result == null ? int.MinValue : int.TryParse(result.ToString(), out var insertedId) ? insertedId : int.MinValue;
@@ -119,7 +120,7 @@ namespace Infrastructure.Data.Access
                     foreach (var item in items)
                     {
                         i++;
-                        query += " INSERT INTO [Document] ([Type],[Num],[DateDocument],[Client],[Adresse],[MF],[TVA],[Timbre],[Projets]) VALUES ( "
+                        query += " INSERT INTO [Document] ([Type],[Num],[DateDocument],[Client],[Adresse],[MF],[TVA],[Timbre],[Projets],[BC]) VALUES ( "
 
                             + "@Type" + i + ","
                             + "@Num" + i + ","
@@ -129,7 +130,8 @@ namespace Infrastructure.Data.Access
                             + "@TVA" + i + ","
                             + "@MF" + i + ","
                             + "@Timbre" + i + ","
-                            + "@Projets" + i
+                            + "@Projets" + i + ","
+                            + "@BC" + i
                             + "); ";
 
                         sqlCommand.Parameters.AddWithValue("Type", item.Type == null ? (object)DBNull.Value : item.Type);
@@ -141,6 +143,7 @@ namespace Infrastructure.Data.Access
                         sqlCommand.Parameters.AddWithValue("TVA" + i, item.TVA == null ? (object)DBNull.Value : item.TVA);
                         sqlCommand.Parameters.AddWithValue("Timbre" + i, item.Timbre == null ? (object)DBNull.Value : item.Timbre);
                         sqlCommand.Parameters.AddWithValue("Projets" + i, item.Projets == null ? (object)DBNull.Value : item.Projets);
+                        sqlCommand.Parameters.AddWithValue("BC" + i, item.BC == null ? (object)DBNull.Value : item.BC);
                     }
 
                     sqlCommand.CommandText = query;
@@ -159,7 +162,7 @@ namespace Infrastructure.Data.Access
             using (OleDbConnection sqlConnection = new OleDbConnection(ConfigurationManager.ConnectionStrings["connectionstringdev"].ConnectionString))
             using (OleDbCommand sqlCommand = sqlConnection.CreateCommand())
             {
-                sqlCommand.CommandText = @"UPDATE [Document] SET Type=@Type,Num=@Num,DateDocument=@DateDocument,Client=@Client,Adresse=@Adresse,MF=@MF,TVA=@TVA,Timbre=@Timbre,Projets=@Projets WHERE Id=@Id";
+                sqlCommand.CommandText = @"UPDATE [Document] SET Type=@Type,Num=@Num,DateDocument=@DateDocument,Client=@Client,Adresse=@Adresse,MF=@MF,TVA=@TVA,Timbre=@Timbre,Projets=@Projets,BC=@BC WHERE Id=@Id";
                 sqlCommand.Parameters.AddWithValue("@Type", item.Type);
                 sqlCommand.Parameters.AddWithValue("@Num", item.Num);
                 sqlCommand.Parameters.AddWithValue("@DateDocument", item.DateDocument);
@@ -169,6 +172,7 @@ namespace Infrastructure.Data.Access
                 sqlCommand.Parameters.AddWithValue("@TVA", item.TVA);
                 sqlCommand.Parameters.AddWithValue("@Timbre", item.Timbre);
                 sqlCommand.Parameters.AddWithValue("@Projets", item.Projets);
+                sqlCommand.Parameters.AddWithValue("@BC", item.BC);
                 sqlCommand.Parameters.AddWithValue("@Id", item.Id);
 
                 sqlConnection.Open();
@@ -228,6 +232,7 @@ namespace Infrastructure.Data.Access
                             + "[TVA]=@TVA" + i + ","
                             + "[Timbre]=@Timbre" + i + ","
                             + "[Projets]=@Projets" + i + ","
+                            + "[BC]=@BC" + i + ","
                             + "[MF]=@MF" + i + " WHERE [Id]=@Id" + i
                             + "; ";
 
@@ -241,6 +246,7 @@ namespace Infrastructure.Data.Access
                         sqlCommand.Parameters.AddWithValue("TVA" + i, item.TVA == null ? (object)DBNull.Value : item.TVA);
                         sqlCommand.Parameters.AddWithValue("Timbre" + i, item.Timbre == null ? (object)DBNull.Value : item.Timbre);
                         sqlCommand.Parameters.AddWithValue("Projets" + i, item.Projets == null ? (object)DBNull.Value : item.Projets);
+                        sqlCommand.Parameters.AddWithValue("BC" + i, item.BC == null ? (object)DBNull.Value : item.BC);
                     }
 
                     sqlCommand.CommandText = query;
