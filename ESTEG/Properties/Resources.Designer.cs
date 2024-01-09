@@ -133,6 +133,26 @@ namespace ESTEG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_delete_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-delete-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_delete_201 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-delete-201", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_delete_25 {
             get {
                 object obj = ResourceManager.GetObject("icons8-delete-25", resourceCulture);
@@ -143,9 +163,29 @@ namespace ESTEG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_edit_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-edit-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_estimate_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-estimate-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_eye_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-eye-20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,6 +223,16 @@ namespace ESTEG.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_pdf_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-pdf-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_pdf_25 {
             get {
                 object obj = ResourceManager.GetObject("icons8-pdf-25", resourceCulture);
@@ -196,6 +246,16 @@ namespace ESTEG.Properties {
         internal static System.Drawing.Bitmap icons8_save_25 {
             get {
                 object obj = ResourceManager.GetObject("icons8-save-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_spinning_circle {
+            get {
+                object obj = ResourceManager.GetObject("icons8-spinning-circle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

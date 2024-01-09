@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace ESTEG
 {
@@ -32,9 +33,10 @@ namespace ESTEG
 
                     var report = new Infrastructure.Reportig.FastReport();
                     var file = report.GenerateReport(document, articles);
-                    var p = new Process();
-                    p.StartInfo = new ProcessStartInfo(file) { UseShellExecute = true };
-                    p.Start();
+
+                    Document doc = new Document();
+                    doc.SetDocument(file);
+                    doc.ShowDialog();
                 }
             }
             catch (Exception ex)
@@ -311,7 +313,6 @@ namespace ESTEG
             numFactureLbl.Text = $"/{DateTime.Now.Year}";
             bcTxt.Clear();
         }
-
         #endregion
     }
 }

@@ -34,26 +34,26 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             factures = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            numero = new DataGridViewTextBoxColumn();
-            date = new DataGridViewTextBoxColumn();
-            client = new DataGridViewTextBoxColumn();
-            see = new DataGridViewButtonColumn();
-            delete = new DataGridViewButtonColumn();
-            pdf = new DataGridViewButtonColumn();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             textBox1 = new TextBox();
             tabPage2 = new TabPage();
             textBox2 = new TextBox();
             devis = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            numero = new DataGridViewTextBoxColumn();
+            date = new DataGridViewTextBoxColumn();
+            client = new DataGridViewTextBoxColumn();
+            see = new DataGridViewImageColumn();
+            delete = new DataGridViewImageColumn();
+            pdf = new DataGridViewImageColumn();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            see_d = new DataGridViewButtonColumn();
-            delete_d = new DataGridViewButtonColumn();
-            pdf_d = new DataGridViewButtonColumn();
+            see_d = new DataGridViewImageColumn();
+            delete_d = new DataGridViewImageColumn();
+            pdf_d = new DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)factures).BeginInit();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -70,9 +70,9 @@
             factures.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             factures.BackgroundColor = Color.White;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.BackColor = Color.Black;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.ForeColor = Color.White;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
@@ -87,6 +87,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             factures.DefaultCellStyle = dataGridViewCellStyle2;
+            factures.EnableHeadersVisualStyles = false;
             factures.Location = new Point(8, 59);
             factures.Margin = new Padding(3, 4, 3, 4);
             factures.Name = "factures";
@@ -105,75 +106,6 @@
             factures.Size = new Size(998, 530);
             factures.TabIndex = 0;
             factures.CellContentClick += factures_CellContentClick;
-            // 
-            // id
-            // 
-            id.HeaderText = "id";
-            id.MinimumWidth = 6;
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Visible = false;
-            id.Width = 125;
-            // 
-            // numero
-            // 
-            numero.HeaderText = "NUMERO";
-            numero.MinimumWidth = 6;
-            numero.Name = "numero";
-            numero.ReadOnly = true;
-            numero.Width = 125;
-            // 
-            // date
-            // 
-            date.HeaderText = "DATE";
-            date.MinimumWidth = 6;
-            date.Name = "date";
-            date.ReadOnly = true;
-            date.Width = 200;
-            // 
-            // client
-            // 
-            client.HeaderText = "CLIENT";
-            client.MinimumWidth = 6;
-            client.Name = "client";
-            client.ReadOnly = true;
-            client.Width = 200;
-            // 
-            // see
-            // 
-            see.HeaderText = "VOIR";
-            see.MinimumWidth = 6;
-            see.Name = "see";
-            see.ReadOnly = true;
-            see.Resizable = DataGridViewTriState.True;
-            see.SortMode = DataGridViewColumnSortMode.Automatic;
-            see.Text = "Voir";
-            see.UseColumnTextForButtonValue = true;
-            see.Width = 125;
-            // 
-            // delete
-            // 
-            delete.HeaderText = "SUPPRIMER";
-            delete.MinimumWidth = 6;
-            delete.Name = "delete";
-            delete.ReadOnly = true;
-            delete.Resizable = DataGridViewTriState.True;
-            delete.SortMode = DataGridViewColumnSortMode.Automatic;
-            delete.Text = "Supp.";
-            delete.UseColumnTextForButtonValue = true;
-            delete.Width = 125;
-            // 
-            // pdf
-            // 
-            pdf.HeaderText = "PDF";
-            pdf.MinimumWidth = 6;
-            pdf.Name = "pdf";
-            pdf.ReadOnly = true;
-            pdf.Resizable = DataGridViewTriState.True;
-            pdf.SortMode = DataGridViewColumnSortMode.Automatic;
-            pdf.Text = "PDF";
-            pdf.UseColumnTextForButtonValue = true;
-            pdf.Width = 125;
             // 
             // tabControl1
             // 
@@ -237,9 +169,9 @@
             devis.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             devis.BackgroundColor = Color.White;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.BackColor = Color.Black;
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.ForeColor = Color.White;
             dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
@@ -255,6 +187,7 @@
             dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
             devis.DefaultCellStyle = dataGridViewCellStyle5;
+            devis.EnableHeadersVisualStyles = false;
             devis.Location = new Point(7, 56);
             devis.Margin = new Padding(3, 4, 3, 4);
             devis.Name = "devis";
@@ -264,6 +197,75 @@
             devis.Size = new Size(996, 531);
             devis.TabIndex = 1;
             devis.CellContentClick += DEVIS_CellContentClick;
+            // 
+            // id
+            // 
+            id.HeaderText = "id";
+            id.MinimumWidth = 6;
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Visible = false;
+            id.Width = 125;
+            // 
+            // numero
+            // 
+            numero.HeaderText = "NUMERO";
+            numero.MinimumWidth = 6;
+            numero.Name = "numero";
+            numero.ReadOnly = true;
+            numero.Width = 125;
+            // 
+            // date
+            // 
+            date.HeaderText = "DATE";
+            date.MinimumWidth = 6;
+            date.Name = "date";
+            date.ReadOnly = true;
+            date.Width = 200;
+            // 
+            // client
+            // 
+            client.HeaderText = "CLIENT";
+            client.MinimumWidth = 6;
+            client.Name = "client";
+            client.ReadOnly = true;
+            client.Width = 200;
+            // 
+            // see
+            // 
+            see.HeaderText = "VOIR";
+            see.Image = Properties.Resources.icons8_eye_20;
+            see.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            see.MinimumWidth = 6;
+            see.Name = "see";
+            see.ReadOnly = true;
+            see.Resizable = DataGridViewTriState.True;
+            see.SortMode = DataGridViewColumnSortMode.Automatic;
+            see.Width = 125;
+            // 
+            // delete
+            // 
+            delete.HeaderText = "SUPPRIMER";
+            delete.Image = Properties.Resources.icons8_delete_201;
+            delete.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            delete.MinimumWidth = 6;
+            delete.Name = "delete";
+            delete.ReadOnly = true;
+            delete.Resizable = DataGridViewTriState.True;
+            delete.SortMode = DataGridViewColumnSortMode.Automatic;
+            delete.Width = 125;
+            // 
+            // pdf
+            // 
+            pdf.HeaderText = "PDF";
+            pdf.Image = Properties.Resources.icons8_pdf_20;
+            pdf.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            pdf.MinimumWidth = 6;
+            pdf.Name = "pdf";
+            pdf.ReadOnly = true;
+            pdf.Resizable = DataGridViewTriState.True;
+            pdf.SortMode = DataGridViewColumnSortMode.Automatic;
+            pdf.Width = 125;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -301,39 +303,39 @@
             // see_d
             // 
             see_d.HeaderText = "VOIR";
+            see_d.Image = Properties.Resources.icons8_eye_20;
+            see_d.ImageLayout = DataGridViewImageCellLayout.Zoom;
             see_d.MinimumWidth = 6;
             see_d.Name = "see_d";
             see_d.ReadOnly = true;
             see_d.Resizable = DataGridViewTriState.True;
             see_d.SortMode = DataGridViewColumnSortMode.Automatic;
-            see_d.Text = "Voir";
-            see_d.UseColumnTextForButtonValue = true;
             see_d.Width = 125;
             // 
             // delete_d
             // 
             delete_d.HeaderText = "SUPPRIMER";
+            delete_d.Image = Properties.Resources.icons8_delete_20;
+            delete_d.ImageLayout = DataGridViewImageCellLayout.Zoom;
             delete_d.MinimumWidth = 6;
             delete_d.Name = "delete_d";
             delete_d.ReadOnly = true;
             delete_d.Resizable = DataGridViewTriState.True;
             delete_d.SortMode = DataGridViewColumnSortMode.Automatic;
-            delete_d.Text = "Supp.";
             delete_d.ToolTipText = "Supp.";
-            delete_d.UseColumnTextForButtonValue = true;
             delete_d.Width = 125;
             // 
             // pdf_d
             // 
             pdf_d.HeaderText = "PDF";
+            pdf_d.Image = Properties.Resources.icons8_pdf_20;
+            pdf_d.ImageLayout = DataGridViewImageCellLayout.Zoom;
             pdf_d.MinimumWidth = 6;
             pdf_d.Name = "pdf_d";
             pdf_d.ReadOnly = true;
             pdf_d.Resizable = DataGridViewTriState.True;
             pdf_d.SortMode = DataGridViewColumnSortMode.Automatic;
-            pdf_d.Text = "PDF";
             pdf_d.ToolTipText = "PDF";
-            pdf_d.UseColumnTextForButtonValue = true;
             pdf_d.Width = 125;
             // 
             // FactureList
@@ -360,25 +362,25 @@
         #endregion
 
         private DataGridView factures;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn numero;
-        private DataGridViewTextBoxColumn date;
-        private DataGridViewTextBoxColumn client;
-        private DataGridViewButtonColumn see;
-        private DataGridViewButtonColumn delete;
-        private DataGridViewButtonColumn pdf;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
         private DataGridView devis;
         private TextBox textBox1;
         private TextBox textBox2;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn numero;
+        private DataGridViewTextBoxColumn date;
+        private DataGridViewTextBoxColumn client;
+        private DataGridViewImageColumn see;
+        private DataGridViewImageColumn delete;
+        private DataGridViewImageColumn pdf;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewButtonColumn see_d;
-        private DataGridViewButtonColumn delete_d;
-        private DataGridViewButtonColumn pdf_d;
+        private DataGridViewImageColumn see_d;
+        private DataGridViewImageColumn delete_d;
+        private DataGridViewImageColumn pdf_d;
     }
 }

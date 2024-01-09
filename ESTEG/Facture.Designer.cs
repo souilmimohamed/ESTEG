@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facture));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             pictureBox1 = new PictureBox();
             newBtn = new Button();
             deleteBtn = new Button();
@@ -46,10 +47,12 @@
             ptht = new DataGridViewTextBoxColumn();
             puht_h = new DataGridViewTextBoxColumn();
             ptht_h = new DataGridViewTextBoxColumn();
-            edit = new DataGridViewButtonColumn();
-            delete = new DataGridViewButtonColumn();
+            edit = new DataGridViewImageColumn();
+            delete = new DataGridViewImageColumn();
             button1 = new Button();
             panel1 = new Panel();
+            bcTxt = new TextBox();
+            label13 = new Label();
             typeCbx = new ComboBox();
             numFactureLbl = new Label();
             dateDte = new DateTimePicker();
@@ -80,8 +83,7 @@
             idTxt = new TextBox();
             projetsTxt = new TextBox();
             label1 = new Label();
-            label13 = new Label();
-            bcTxt = new TextBox();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)facturePositions).BeginInit();
             panel1.SuspendLayout();
@@ -91,11 +93,11 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.esteg_logo_removebg_preview;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(3, 3);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(222, 200);
+            pictureBox1.Size = new Size(419, 200);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -105,10 +107,10 @@
             newBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             newBtn.Image = Properties.Resources.icons8_add_25;
             newBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            newBtn.Location = new Point(3, 279);
+            newBtn.Location = new Point(5, 307);
             newBtn.Margin = new Padding(3, 4, 3, 4);
             newBtn.Name = "newBtn";
-            newBtn.Size = new Size(222, 61);
+            newBtn.Size = new Size(167, 61);
             newBtn.TabIndex = 1;
             newBtn.Text = "Nouveau";
             newBtn.UseVisualStyleBackColor = true;
@@ -119,10 +121,10 @@
             deleteBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             deleteBtn.Image = Properties.Resources.icons8_delete_25;
             deleteBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            deleteBtn.Location = new Point(3, 348);
+            deleteBtn.Location = new Point(5, 376);
             deleteBtn.Margin = new Padding(3, 4, 3, 4);
             deleteBtn.Name = "deleteBtn";
-            deleteBtn.Size = new Size(222, 61);
+            deleteBtn.Size = new Size(167, 61);
             deleteBtn.TabIndex = 2;
             deleteBtn.Text = "Supprimer";
             deleteBtn.UseVisualStyleBackColor = true;
@@ -133,10 +135,10 @@
             pdfBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             pdfBtn.Image = Properties.Resources.icons8_pdf_25;
             pdfBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            pdfBtn.Location = new Point(3, 417);
+            pdfBtn.Location = new Point(5, 445);
             pdfBtn.Margin = new Padding(3, 4, 3, 4);
             pdfBtn.Name = "pdfBtn";
-            pdfBtn.Size = new Size(222, 61);
+            pdfBtn.Size = new Size(167, 61);
             pdfBtn.TabIndex = 3;
             pdfBtn.Text = "PDF";
             pdfBtn.UseVisualStyleBackColor = true;
@@ -147,10 +149,10 @@
             listBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             listBtn.Image = Properties.Resources.icons8_list_25;
             listBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            listBtn.Location = new Point(3, 211);
+            listBtn.Location = new Point(5, 239);
             listBtn.Margin = new Padding(3, 4, 3, 4);
             listBtn.Name = "listBtn";
-            listBtn.Size = new Size(222, 61);
+            listBtn.Size = new Size(167, 61);
             listBtn.TabIndex = 4;
             listBtn.Text = "LIST";
             listBtn.UseVisualStyleBackColor = true;
@@ -162,40 +164,41 @@
             facturePositions.AllowUserToDeleteRows = false;
             facturePositions.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             facturePositions.BackgroundColor = Color.White;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            facturePositions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Black;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            facturePositions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             facturePositions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             facturePositions.Columns.AddRange(new DataGridViewColumn[] { id, qte, designation, unite, puht, tva, ptht, puht_h, ptht_h, edit, delete });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.Padding = new Padding(1);
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            facturePositions.DefaultCellStyle = dataGridViewCellStyle5;
-            facturePositions.Location = new Point(233, 406);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.Padding = new Padding(1);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            facturePositions.DefaultCellStyle = dataGridViewCellStyle2;
+            facturePositions.EnableHeadersVisualStyles = false;
+            facturePositions.Location = new Point(178, 406);
             facturePositions.Margin = new Padding(3, 4, 3, 4);
             facturePositions.Name = "facturePositions";
             facturePositions.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            facturePositions.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            facturePositions.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             facturePositions.RowHeadersWidth = 51;
             facturePositions.RowTemplate.Height = 35;
-            facturePositions.Size = new Size(1172, 653);
+            facturePositions.Size = new Size(1221, 653);
             facturePositions.TabIndex = 6;
             facturePositions.CellContentClick += facturePositions_CellContentClick;
             // 
@@ -277,25 +280,25 @@
             // edit
             // 
             edit.HeaderText = "MODIFIER";
+            edit.Image = (Image)resources.GetObject("edit.Image");
+            edit.ImageLayout = DataGridViewImageCellLayout.Zoom;
             edit.MinimumWidth = 6;
             edit.Name = "edit";
             edit.ReadOnly = true;
             edit.Resizable = DataGridViewTriState.True;
             edit.SortMode = DataGridViewColumnSortMode.Automatic;
-            edit.Text = "MOD.";
-            edit.UseColumnTextForButtonValue = true;
             edit.Width = 125;
             // 
             // delete
             // 
             delete.HeaderText = "SUPPRIMER";
+            delete.Image = Properties.Resources.icons8_delete_20;
+            delete.ImageLayout = DataGridViewImageCellLayout.Zoom;
             delete.MinimumWidth = 6;
             delete.Name = "delete";
             delete.ReadOnly = true;
             delete.Resizable = DataGridViewTriState.True;
             delete.SortMode = DataGridViewColumnSortMode.Automatic;
-            delete.Text = "SUPP.";
-            delete.UseColumnTextForButtonValue = true;
             delete.Width = 125;
             // 
             // button1
@@ -303,10 +306,10 @@
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button1.Image = Properties.Resources.icons8_add_25__1_;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(232, 337);
+            button1.Location = new Point(177, 337);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(306, 61);
+            button1.Size = new Size(234, 61);
             button1.TabIndex = 7;
             button1.Text = "     NOUVEAU ARTICLE";
             button1.UseVisualStyleBackColor = true;
@@ -322,11 +325,30 @@
             panel1.Controls.Add(dateDte);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
-            panel1.Location = new Point(232, 3);
+            panel1.Location = new Point(428, 3);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(306, 169);
+            panel1.Size = new Size(354, 200);
             panel1.TabIndex = 8;
+            // 
+            // bcTxt
+            // 
+            bcTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            bcTxt.Location = new Point(77, 131);
+            bcTxt.Margin = new Padding(3, 4, 3, 4);
+            bcTxt.Name = "bcTxt";
+            bcTxt.Size = new Size(250, 34);
+            bcTxt.TabIndex = 15;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.Location = new Point(6, 131);
+            label13.Name = "label13";
+            label13.Size = new Size(42, 28);
+            label13.TabIndex = 17;
+            label13.Text = "BC:";
             // 
             // typeCbx
             // 
@@ -337,14 +359,14 @@
             typeCbx.Location = new Point(6, 6);
             typeCbx.Margin = new Padding(3, 4, 3, 4);
             typeCbx.Name = "typeCbx";
-            typeCbx.Size = new Size(295, 39);
+            typeCbx.Size = new Size(343, 39);
             typeCbx.TabIndex = 16;
             // 
             // numFactureLbl
             // 
             numFactureLbl.AutoSize = true;
             numFactureLbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            numFactureLbl.Location = new Point(154, 56);
+            numFactureLbl.Location = new Point(186, 56);
             numFactureLbl.Name = "numFactureLbl";
             numFactureLbl.Size = new Size(21, 28);
             numFactureLbl.TabIndex = 12;
@@ -352,10 +374,11 @@
             // 
             // dateDte
             // 
-            dateDte.Location = new Point(65, 95);
+            dateDte.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dateDte.Location = new Point(77, 89);
             dateDte.Margin = new Padding(3, 4, 3, 4);
             dateDte.Name = "dateDte";
-            dateDte.Size = new Size(227, 27);
+            dateDte.Size = new Size(250, 34);
             dateDte.TabIndex = 11;
             // 
             // label3
@@ -392,10 +415,10 @@
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label6);
-            panel2.Location = new Point(987, 3);
+            panel2.Location = new Point(978, 3);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(421, 180);
+            panel2.Size = new Size(421, 200);
             panel2.TabIndex = 9;
             // 
             // timbreCbx
@@ -514,7 +537,7 @@
             panel3.Controls.Add(thtLbl);
             panel3.Controls.Add(label8);
             panel3.Controls.Add(label9);
-            panel3.Location = new Point(1069, 1067);
+            panel3.Location = new Point(1064, 1067);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(335, 165);
@@ -543,7 +566,9 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.BackColor = Color.Black;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.White;
             label7.Location = new Point(3, 128);
             label7.Name = "label7";
             label7.Size = new Size(113, 28);
@@ -553,7 +578,9 @@
             // tttcLbl
             // 
             tttcLbl.AutoSize = true;
+            tttcLbl.BackColor = Color.Black;
             tttcLbl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            tttcLbl.ForeColor = Color.White;
             tttcLbl.Location = new Point(202, 128);
             tttcLbl.Name = "tttcLbl";
             tttcLbl.Size = new Size(24, 28);
@@ -616,12 +643,12 @@
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button2.Image = Properties.Resources.icons8_save_25;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(232, 1067);
+            button2.Location = new Point(177, 1067);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
-            button2.Size = new Size(306, 61);
+            button2.Size = new Size(234, 61);
             button2.TabIndex = 11;
-            button2.Text = "SAVE";
+            button2.Text = "SAUVGARDER";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -640,41 +667,26 @@
             // 
             projetsTxt.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             projetsTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            projetsTxt.Location = new Point(233, 239);
+            projetsTxt.Location = new Point(178, 239);
             projetsTxt.Margin = new Padding(3, 4, 3, 4);
             projetsTxt.Multiline = true;
             projetsTxt.Name = "projetsTxt";
-            projetsTxt.Size = new Size(1173, 90);
+            projetsTxt.Size = new Size(1221, 90);
             projetsTxt.TabIndex = 13;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(233, 207);
+            label1.Location = new Point(178, 207);
             label1.Name = "label1";
             label1.Size = new Size(100, 28);
             label1.TabIndex = 14;
             label1.Text = "PROJETS:";
             // 
-            // label13
+            // backgroundWorker1
             // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.Location = new Point(6, 131);
-            label13.Name = "label13";
-            label13.Size = new Size(42, 28);
-            label13.TabIndex = 17;
-            label13.Text = "BC:";
-            // 
-            // bcTxt
-            // 
-            bcTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            bcTxt.Location = new Point(42, 128);
-            bcTxt.Margin = new Padding(3, 4, 3, 4);
-            bcTxt.Name = "bcTxt";
-            bcTxt.Size = new Size(250, 34);
-            bcTxt.TabIndex = 15;
+            backgroundWorker1.WorkerReportsProgress = true;
             // 
             // Facture
             // 
@@ -751,6 +763,8 @@
         private ComboBox typeCbx;
         private TextBox projetsTxt;
         private Label label1;
+        private TextBox bcTxt;
+        private Label label13;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn qte;
         private DataGridViewTextBoxColumn designation;
@@ -760,9 +774,8 @@
         private DataGridViewTextBoxColumn ptht;
         private DataGridViewTextBoxColumn puht_h;
         private DataGridViewTextBoxColumn ptht_h;
-        private DataGridViewButtonColumn edit;
-        private DataGridViewButtonColumn delete;
-        private TextBox bcTxt;
-        private Label label13;
+        private DataGridViewImageColumn edit;
+        private DataGridViewImageColumn delete;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
