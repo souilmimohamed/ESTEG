@@ -84,6 +84,7 @@
             projetsTxt = new TextBox();
             label1 = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            menuBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)facturePositions).BeginInit();
             panel1.SuspendLayout();
@@ -688,11 +689,26 @@
             // 
             backgroundWorker1.WorkerReportsProgress = true;
             // 
+            // menuBtn
+            // 
+            menuBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            menuBtn.Image = (Image)resources.GetObject("menuBtn.Image");
+            menuBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            menuBtn.Location = new Point(5, 514);
+            menuBtn.Margin = new Padding(3, 4, 3, 4);
+            menuBtn.Name = "menuBtn";
+            menuBtn.Size = new Size(167, 61);
+            menuBtn.TabIndex = 38;
+            menuBtn.Text = "MENU";
+            menuBtn.UseVisualStyleBackColor = true;
+            menuBtn.Click += menuBtn_Click;
+            // 
             // Facture
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1411, 1240);
+            Controls.Add(menuBtn);
             Controls.Add(label1);
             Controls.Add(projetsTxt);
             Controls.Add(idTxt);
@@ -777,5 +793,6 @@
         private DataGridViewImageColumn edit;
         private DataGridViewImageColumn delete;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button menuBtn;
     }
 }

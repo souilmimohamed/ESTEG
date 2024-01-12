@@ -314,5 +314,13 @@ namespace ESTEG
             bcTxt.Clear();
         }
         #endregion
+
+        private void menuBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu menu = new Menu();
+            menu.Closed += (s, args) => this.Close();
+            menu.Show();
+        }
     }
 }
