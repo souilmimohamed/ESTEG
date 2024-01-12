@@ -81,7 +81,7 @@
             listEmployeeBtn.Location = new Point(3, 159);
             listEmployeeBtn.Margin = new Padding(3, 4, 3, 4);
             listEmployeeBtn.Name = "listEmployeeBtn";
-            listEmployeeBtn.Size = new Size(296, 61);
+            listEmployeeBtn.Size = new Size(296, 75);
             listEmployeeBtn.TabIndex = 5;
             listEmployeeBtn.Text = "LIST EMPLOYEE";
             listEmployeeBtn.UseVisualStyleBackColor = true;
@@ -131,10 +131,11 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel1.Location = new Point(305, 159);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(889, 419);
+            flowLayoutPanel1.Size = new Size(889, 614);
             flowLayoutPanel1.TabIndex = 20;
             // 
             // label9
@@ -202,10 +203,10 @@
             chooseEmployeeBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             chooseEmployeeBtn.Image = (Image)resources.GetObject("chooseEmployeeBtn.Image");
             chooseEmployeeBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            chooseEmployeeBtn.Location = new Point(312, 13);
+            chooseEmployeeBtn.Location = new Point(312, 6);
             chooseEmployeeBtn.Margin = new Padding(3, 4, 3, 4);
             chooseEmployeeBtn.Name = "chooseEmployeeBtn";
-            chooseEmployeeBtn.Size = new Size(296, 53);
+            chooseEmployeeBtn.Size = new Size(296, 66);
             chooseEmployeeBtn.TabIndex = 28;
             chooseEmployeeBtn.Text = "CHOISIR EMPLOYEE";
             chooseEmployeeBtn.UseVisualStyleBackColor = true;
@@ -234,10 +235,10 @@
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button1.Image = Properties.Resources.icons8_check_25;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(822, 108);
+            button1.Location = new Point(908, 90);
             button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(165, 36);
+            button1.Size = new Size(165, 54);
             button1.TabIndex = 31;
             button1.Text = "VALIDER";
             button1.UseVisualStyleBackColor = true;
@@ -285,6 +286,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label9);
             panel1.Controls.Add(totalApayerLbl);
@@ -294,7 +296,7 @@
             panel1.Controls.Add(totalAvanceLbl);
             panel1.Controls.Add(joursTravalieeLbl);
             panel1.Controls.Add(totalMoisLbl);
-            panel1.Location = new Point(864, 584);
+            panel1.Location = new Point(864, 779);
             panel1.Name = "panel1";
             panel1.Size = new Size(330, 160);
             panel1.TabIndex = 36;
@@ -304,10 +306,10 @@
             menuBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             menuBtn.Image = (Image)resources.GetObject("menuBtn.Image");
             menuBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            menuBtn.Location = new Point(3, 228);
+            menuBtn.Location = new Point(3, 242);
             menuBtn.Margin = new Padding(3, 4, 3, 4);
             menuBtn.Name = "menuBtn";
-            menuBtn.Size = new Size(296, 61);
+            menuBtn.Size = new Size(296, 76);
             menuBtn.TabIndex = 37;
             menuBtn.Text = "MENU";
             menuBtn.UseVisualStyleBackColor = true;
@@ -355,7 +357,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1200, 754);
+            ClientSize = new Size(1200, 951);
+            Controls.Add(listEmployeeBtn);
             Controls.Add(label6);
             Controls.Add(pictureBox3);
             Controls.Add(label3);
@@ -373,9 +376,8 @@
             Controls.Add(label2);
             Controls.Add(moisCbx);
             Controls.Add(label1);
-            Controls.Add(listEmployeeBtn);
             Controls.Add(pictureBox1);
-            MaximumSize = new Size(1321, 840);
+            MaximumSize = new Size(1218, 998);
             Name = "Pointage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pointage";

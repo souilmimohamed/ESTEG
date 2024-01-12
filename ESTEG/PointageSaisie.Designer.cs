@@ -118,7 +118,7 @@
             saveBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             saveBtn.Image = Properties.Resources.icons8_save_25;
             saveBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            saveBtn.Location = new Point(609, 5);
+            saveBtn.Location = new Point(338, 17);
             saveBtn.Margin = new Padding(3, 4, 3, 4);
             saveBtn.Name = "saveBtn";
             saveBtn.Size = new Size(205, 61);
@@ -132,7 +132,7 @@
             deleteBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             deleteBtn.Image = Properties.Resources.icons8_delete_25;
             deleteBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            deleteBtn.Location = new Point(609, 74);
+            deleteBtn.Location = new Point(338, 86);
             deleteBtn.Margin = new Padding(3, 4, 3, 4);
             deleteBtn.Name = "deleteBtn";
             deleteBtn.Size = new Size(205, 61);
@@ -144,7 +144,7 @@
             // idTxt
             // 
             idTxt.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            idTxt.Location = new Point(769, 325);
+            idTxt.Location = new Point(273, 8);
             idTxt.Margin = new Padding(3, 4, 3, 4);
             idTxt.Name = "idTxt";
             idTxt.Size = new Size(45, 38);
@@ -154,17 +154,17 @@
             // dateTxt
             // 
             dateTxt.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTxt.Location = new Point(560, 325);
+            dateTxt.Location = new Point(172, 8);
             dateTxt.Margin = new Padding(3, 4, 3, 4);
             dateTxt.Name = "dateTxt";
-            dateTxt.Size = new Size(152, 38);
+            dateTxt.Size = new Size(44, 38);
             dateTxt.TabIndex = 21;
             dateTxt.Visible = false;
             // 
             // employeeIdTxt
             // 
             employeeIdTxt.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            employeeIdTxt.Location = new Point(718, 325);
+            employeeIdTxt.Location = new Point(222, 8);
             employeeIdTxt.Margin = new Padding(3, 4, 3, 4);
             employeeIdTxt.Name = "employeeIdTxt";
             employeeIdTxt.Size = new Size(45, 38);
@@ -175,7 +175,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(817, 367);
+            ClientSize = new Size(555, 367);
             Controls.Add(employeeIdTxt);
             Controls.Add(dateTxt);
             Controls.Add(idTxt);
@@ -188,10 +188,10 @@
             Controls.Add(label4);
             Controls.Add(lieuTxt);
             Controls.Add(precenseChk);
-            MaximumSize = new Size(835, 414);
+            MaximumSize = new Size(573, 414);
             Name = "PointageSaisie";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "PointageSaisie";
+            Text = "Saisie Pointage";
             ResumeLayout(false);
             PerformLayout();
         }
