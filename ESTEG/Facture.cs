@@ -32,7 +32,7 @@ namespace ESTEG
                     document.Letters = $"{Infrastructure.Helpers.Helper.NumberToWords(tht + ttva + document.Timbre)}";
 
                     var report = new Infrastructure.Reportig.FastReport();
-                    var file = report.GenerateReport(document, articles);
+                    var file = report.GenerateDocumentReport(document, articles);
 
                     Document doc = new Document();
                     doc.SetDocument(file);

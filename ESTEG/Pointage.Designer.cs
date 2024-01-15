@@ -56,6 +56,7 @@
             label3 = new Label();
             label6 = new Label();
             pictureBox3 = new PictureBox();
+            ficheDePaieBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -353,11 +354,26 @@
             pictureBox3.TabIndex = 40;
             pictureBox3.TabStop = false;
             // 
+            // ficheDePaieBtn
+            // 
+            ficheDePaieBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            ficheDePaieBtn.Image = Properties.Resources.icons8_estimate_50;
+            ficheDePaieBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            ficheDePaieBtn.Location = new Point(305, 776);
+            ficheDePaieBtn.Margin = new Padding(3, 4, 3, 4);
+            ficheDePaieBtn.Name = "ficheDePaieBtn";
+            ficheDePaieBtn.Size = new Size(265, 60);
+            ficheDePaieBtn.TabIndex = 42;
+            ficheDePaieBtn.Text = "FICHE DE PAIE";
+            ficheDePaieBtn.UseVisualStyleBackColor = true;
+            ficheDePaieBtn.Click += ficheDePaieBtn_Click;
+            // 
             // Pointage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1200, 951);
+            Controls.Add(ficheDePaieBtn);
             Controls.Add(listEmployeeBtn);
             Controls.Add(label6);
             Controls.Add(pictureBox3);
@@ -419,5 +435,6 @@
         private Label label3;
         private Label label6;
         private PictureBox pictureBox3;
+        private Button ficheDePaieBtn;
     }
 }

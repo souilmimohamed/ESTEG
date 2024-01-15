@@ -38,6 +38,52 @@ namespace ESTEG
             menu.Closed += (s, args) => this.Close();
             menu.Show();
         }
+        private void ficheDePaieBtn_Click(object sender, EventArgs e)
+        {
+            if (idText.Text.StringIsNullOrEmptyOrWhiteSpaces())
+                MessageBox.Show(this, "Choisissez un employee pour afficher le pointage", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                var idEmployee = Convert.ToInt32(idText.Text);
+                var mois = Convert.ToInt32(moisCbx.SelectedValue);
+                var annee = Convert.ToInt32(anneeCbx.SelectedValue);
+
+                var employee = Infrastructure.Data.Access.EmployeeAccess.Get(idEmployee);
+                var pointage = Infrastructure.Data.Access.PointageAccess.GetByEmployeeIdAndYear(idEmployee, annee);
+                pointage = pointage?.Where(p => p.Mois == mois).ToList();
+
+                var jourTravaille = pointage.Where(p => p.Presence)?.Count() ?? 0;
+                var totalParMois = jourTravaille * employee.TarifJounalier;
+                var totalAvance = pointage?.Sum(p => p.Avance) ?? 0;
+                var totalAPayer = totalParMois - totalAvance;
+                var culture = CultureInfo.CreateSpecificCulture("fr");
+                var sommaire = new Infrastructure.Data.Entities.PointageSommaire
+                {
+                    Mois = culture.DateTimeFormat.GetMonthName(mois),
+                    Annee = annee,
+                    NombreJoursTravailee = pointage.Where(p => p.Presence)?.Count() ?? 0,
+                    NomPrenom = employee.NomPrenom,
+                    TarifJournalier = employee.TarifJounalier,
+                    TotalAPayer = totalAPayer,
+                    TotalAvance = totalAvance,
+                    TotalParMois = totalParMois,
+                };
+                var details = pointage?.Select(p => new Infrastructure.Data.Entities.PointageDetails
+                {
+                    Avance = p.Avance,
+                    Date = $"{(p.Jour <= 9 ? $"0{p.Jour}" : p.Jour)}/{(p.Mois <= 9 ? $"0{p.Mois}" : p.Mois)}/{p.Annee}",
+                    Divers = p.Divers,
+                    Lieu = p.Lieu,
+                }).ToList();
+
+                var report = new Infrastructure.Reportig.FastReport();
+                var file = report.GeneratePointageReport(sommaire, details);
+
+                Document doc = new Document();
+                doc.SetDocument(file);
+                doc.ShowDialog();
+            }
+        }
         #region Helpers
         public void FillLists()
         {

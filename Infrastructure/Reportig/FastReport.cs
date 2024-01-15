@@ -6,7 +6,7 @@ namespace Infrastructure.Reportig
 {
     public class FastReport
     {
-        public string GenerateReport(Infrastructure.Data.Entities.DocumentEntity document, List<Infrastructure.Data.Entities.ArticleEntity> articles)
+        public string GenerateDocumentReport(Infrastructure.Data.Entities.DocumentEntity document, List<Infrastructure.Data.Entities.ArticleEntity> articles)
         {
             try
             {
@@ -23,6 +23,34 @@ namespace Infrastructure.Reportig
                 }
 
                 var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"documents/{document.Type}_{document.Client}_{DateTime.Now.ToString("yyyyMMdd HHmmssfff")}.pdf");
+                new global::FastReport.Export.PdfSimple.PDFSimpleExport()
+                            .Export(report, fileName);
+                return fileName;
+            }
+            catch (Exception e)
+            {
+                return "";
+                throw e;
+            }
+        }
+
+        public string GeneratePointageReport(Infrastructure.Data.Entities.PointageSommaire sommaire, List<Infrastructure.Data.Entities.PointageDetails> details)
+        {
+            try
+            {
+                var report = new Report();
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ficheDePaie.frx");
+                report.Load(path);
+                var dataSet = new DataSet("Data");
+                dataSet.Tables.Add(NewTable("Sommaire", new List<Infrastructure.Data.Entities.PointageSommaire> { sommaire }));
+                dataSet.Tables.Add(NewTable("Details", details));
+                report.RegisterData(dataSet, "Data");
+                if (!report.Prepare())
+                {
+                    throw new Exception("Report Prepare did not work properly");
+                }
+
+                var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"documents/Fiche_de_paie_{sommaire.NomPrenom}_{DateTime.Now.ToString("yyyyMMdd HHmmssfff")}.pdf");
                 new global::FastReport.Export.PdfSimple.PDFSimpleExport()
                             .Export(report, fileName);
                 return fileName;
