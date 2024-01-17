@@ -38,6 +38,7 @@
             idTxt = new TextBox();
             label6 = new Label();
             uniteCbx = new ComboBox();
+            rowTxt = new TextBox();
             SuspendLayout();
             // 
             // qtyTxt
@@ -146,12 +147,23 @@
             uniteCbx.Size = new Size(161, 36);
             uniteCbx.TabIndex = 15;
             // 
+            // rowTxt
+            // 
+            rowTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            rowTxt.Location = new Point(51, 205);
+            rowTxt.Margin = new Padding(3, 4, 3, 4);
+            rowTxt.Name = "rowTxt";
+            rowTxt.Size = new Size(39, 34);
+            rowTxt.TabIndex = 16;
+            rowTxt.Visible = false;
+            // 
             // Article
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(798, 245);
+            Controls.Add(rowTxt);
             Controls.Add(uniteCbx);
             Controls.Add(label6);
             Controls.Add(idTxt);
@@ -184,5 +196,6 @@
         private TextBox idTxt;
         private Label label6;
         private ComboBox uniteCbx;
+        private TextBox rowTxt;
     }
 }

@@ -66,7 +66,7 @@ namespace ESTEG
                         PUHT = Convert.ToInt32(row.Cells[7].Value.ToString().ReplaceSpaces()),
                     };
                     Article art = new Article();
-                    art.setArticle(article);
+                    art.setArticle(article, rowIndex);
                     art.ShowDialog();
                 }
                 if (facturePositions.Columns[e.ColumnIndex].Name == "delete")
@@ -158,23 +158,23 @@ namespace ESTEG
                 article.PTHT.ToString()
                 );
             CalculerTotaux();
-            if (!idTxt.Text.StringIsNullOrEmptyOrWhiteSpaces())
-                Infrastructure.Data.Access.ArticlesAccess.Update(article);
         }
-        public void updateArticle(Infrastructure.Data.Entities.ArticleEntity article)
+        public void updateArticle(Infrastructure.Data.Entities.ArticleEntity article, int rowIndex)
         {
-            foreach (DataGridViewRow row in facturePositions.Rows)
+            var row = facturePositions.Rows[rowIndex];
+            row.Cells[1].Value = article.Quantite;
+            row.Cells[2].Value = article.Designation;
+            row.Cells[3].Value = article.Unite;
+            row.Cells[4].Value = article.PUHT.ToString("#,#");
+            row.Cells[6].Value = (article.PTHT).ToString("#,#");
+            row.Cells[7].Value = (article.PUHT).ToString();
+            row.Cells[8].Value = (article.PTHT).ToString();
+
+            if (!idTxt.Text.StringIsNullOrEmptyOrWhiteSpaces())
             {
-                if (row.Cells[0].Value.ToString() == article.Id.ToString())
-                {
-                    row.Cells[1].Value = article.Quantite;
-                    row.Cells[2].Value = article.Designation;
-                    row.Cells[3].Value = article.Unite;
-                    row.Cells[4].Value = article.PUHT.ToString("#,#");
-                    row.Cells[6].Value = (article.PTHT).ToString("#,#");
-                    row.Cells[7].Value = (article.PUHT).ToString();
-                    row.Cells[8].Value = (article.PTHT).ToString();
-                }
+                article.TVA = row.Cells[5].Value.ToString();
+                article.IdFacture = Convert.ToInt32(idTxt.Text);
+                Infrastructure.Data.Access.ArticlesAccess.Update(article);
             }
             CalculerTotaux();
         }
@@ -314,7 +314,6 @@ namespace ESTEG
             bcTxt.Clear();
         }
         #endregion
-
         private void menuBtn_Click(object sender, EventArgs e)
         {
             this.Hide();

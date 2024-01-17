@@ -41,8 +41,9 @@ namespace ESTEG
                 }
                 else
                 {
+                    var rowIndex = Convert.ToInt32(rowTxt.Text);
                     article.Id = Convert.ToInt32(idTxt.Text);
-                    facture.updateArticle(article);
+                    facture.updateArticle(article, rowIndex);
                     this.Close();
                 }
 
@@ -63,13 +64,14 @@ namespace ESTEG
             }
         }
         #region Helpers
-        public void setArticle(ArticleEntity article)
+        public void setArticle(ArticleEntity article, int rowIndex)
         {
             qtyTxt.Text = article.Quantite.ToString();
             designationTxt.Text = article.Designation;
             puhtTxt.Text = article.PUHT.ToString();
             uniteCbx.Text = article.Unite;
             idTxt.Text = article.Id.ToString();
+            rowTxt.Text = rowIndex.ToString();
         }
         public void InitAll()
         {
