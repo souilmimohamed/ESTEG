@@ -34,12 +34,6 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             factures = new DataGridView();
-            tabControl1 = new TabControl();
-            tabPage1 = new TabPage();
-            textBox1 = new TextBox();
-            tabPage2 = new TabPage();
-            textBox2 = new TextBox();
-            devis = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             numero = new DataGridViewTextBoxColumn();
             date = new DataGridViewTextBoxColumn();
@@ -47,6 +41,12 @@
             see = new DataGridViewImageColumn();
             delete = new DataGridViewImageColumn();
             pdf = new DataGridViewImageColumn();
+            tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            textBox1 = new TextBox();
+            tabPage2 = new TabPage();
+            textBox2 = new TextBox();
+            devis = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
@@ -67,7 +67,6 @@
             factures.AllowUserToDeleteRows = false;
             factures.AllowUserToResizeColumns = false;
             factures.AllowUserToResizeRows = false;
-            factures.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             factures.BackgroundColor = Color.White;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Black;
@@ -88,8 +87,8 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             factures.DefaultCellStyle = dataGridViewCellStyle2;
             factures.EnableHeadersVisualStyles = false;
-            factures.Location = new Point(8, 59);
-            factures.Margin = new Padding(3, 4, 3, 4);
+            factures.Location = new Point(13, 94);
+            factures.Margin = new Padding(5, 6, 5, 6);
             factures.Name = "factures";
             factures.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -103,9 +102,78 @@
             factures.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             factures.RowHeadersWidth = 51;
             factures.RowTemplate.Height = 35;
-            factures.Size = new Size(998, 530);
+            factures.Size = new Size(1622, 848);
             factures.TabIndex = 0;
             factures.CellContentClick += factures_CellContentClick;
+            // 
+            // id
+            // 
+            id.HeaderText = "id";
+            id.MinimumWidth = 6;
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Visible = false;
+            id.Width = 125;
+            // 
+            // numero
+            // 
+            numero.HeaderText = "NUMERO";
+            numero.MinimumWidth = 6;
+            numero.Name = "numero";
+            numero.ReadOnly = true;
+            numero.Width = 200;
+            // 
+            // date
+            // 
+            date.HeaderText = "DATE";
+            date.MinimumWidth = 6;
+            date.Name = "date";
+            date.ReadOnly = true;
+            date.Width = 200;
+            // 
+            // client
+            // 
+            client.HeaderText = "CLIENT";
+            client.MinimumWidth = 6;
+            client.Name = "client";
+            client.ReadOnly = true;
+            client.Width = 300;
+            // 
+            // see
+            // 
+            see.HeaderText = "VOIR";
+            see.Image = Properties.Resources.icons8_eye_20;
+            see.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            see.MinimumWidth = 6;
+            see.Name = "see";
+            see.ReadOnly = true;
+            see.Resizable = DataGridViewTriState.True;
+            see.SortMode = DataGridViewColumnSortMode.Automatic;
+            see.Width = 125;
+            // 
+            // delete
+            // 
+            delete.HeaderText = "SUPPRIMER";
+            delete.Image = Properties.Resources.icons8_delete_201;
+            delete.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            delete.MinimumWidth = 6;
+            delete.Name = "delete";
+            delete.ReadOnly = true;
+            delete.Resizable = DataGridViewTriState.True;
+            delete.SortMode = DataGridViewColumnSortMode.Automatic;
+            delete.Width = 200;
+            // 
+            // pdf
+            // 
+            pdf.HeaderText = "PDF";
+            pdf.Image = Properties.Resources.icons8_pdf_20;
+            pdf.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            pdf.MinimumWidth = 6;
+            pdf.Name = "pdf";
+            pdf.ReadOnly = true;
+            pdf.Resizable = DataGridViewTriState.True;
+            pdf.SortMode = DataGridViewColumnSortMode.Automatic;
+            pdf.Width = 125;
             // 
             // tabControl1
             // 
@@ -113,20 +181,22 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            tabControl1.Location = new Point(0, 12);
+            tabControl1.Location = new Point(0, 19);
+            tabControl1.Margin = new Padding(5);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1017, 626);
+            tabControl1.Size = new Size(1653, 1002);
             tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
             tabPage1.Controls.Add(textBox1);
             tabPage1.Controls.Add(factures);
-            tabPage1.Location = new Point(4, 29);
+            tabPage1.Location = new Point(8, 46);
+            tabPage1.Margin = new Padding(5);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1009, 593);
+            tabPage1.Padding = new Padding(5);
+            tabPage1.Size = new Size(1637, 948);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "FACTURE";
             tabPage1.UseVisualStyleBackColor = true;
@@ -134,9 +204,10 @@
             // textBox1
             // 
             textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(8, 18);
+            textBox1.Location = new Point(13, 29);
+            textBox1.Margin = new Padding(5);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(217, 34);
+            textBox1.Size = new Size(350, 50);
             textBox1.TabIndex = 1;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -145,10 +216,11 @@
             tabPage2.Controls.Add(textBox2);
             tabPage2.Controls.Add(devis);
             tabPage2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            tabPage2.Location = new Point(4, 29);
+            tabPage2.Location = new Point(8, 46);
+            tabPage2.Margin = new Padding(5);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1009, 593);
+            tabPage2.Padding = new Padding(5);
+            tabPage2.Size = new Size(1637, 948);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "DEVIS";
             tabPage2.UseVisualStyleBackColor = true;
@@ -156,9 +228,10 @@
             // textBox2
             // 
             textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(8, 15);
+            textBox2.Location = new Point(13, 24);
+            textBox2.Margin = new Padding(5);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(217, 34);
+            textBox2.Size = new Size(350, 50);
             textBox2.TabIndex = 2;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
@@ -188,84 +261,15 @@
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
             devis.DefaultCellStyle = dataGridViewCellStyle5;
             devis.EnableHeadersVisualStyles = false;
-            devis.Location = new Point(7, 56);
-            devis.Margin = new Padding(3, 4, 3, 4);
+            devis.Location = new Point(11, 90);
+            devis.Margin = new Padding(5, 6, 5, 6);
             devis.Name = "devis";
             devis.ReadOnly = true;
             devis.RowHeadersWidth = 51;
             devis.RowTemplate.Height = 35;
-            devis.Size = new Size(996, 531);
+            devis.Size = new Size(1618, 850);
             devis.TabIndex = 1;
             devis.CellContentClick += DEVIS_CellContentClick;
-            // 
-            // id
-            // 
-            id.HeaderText = "id";
-            id.MinimumWidth = 6;
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Visible = false;
-            id.Width = 125;
-            // 
-            // numero
-            // 
-            numero.HeaderText = "NUMERO";
-            numero.MinimumWidth = 6;
-            numero.Name = "numero";
-            numero.ReadOnly = true;
-            numero.Width = 125;
-            // 
-            // date
-            // 
-            date.HeaderText = "DATE";
-            date.MinimumWidth = 6;
-            date.Name = "date";
-            date.ReadOnly = true;
-            date.Width = 200;
-            // 
-            // client
-            // 
-            client.HeaderText = "CLIENT";
-            client.MinimumWidth = 6;
-            client.Name = "client";
-            client.ReadOnly = true;
-            client.Width = 200;
-            // 
-            // see
-            // 
-            see.HeaderText = "VOIR";
-            see.Image = Properties.Resources.icons8_eye_20;
-            see.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            see.MinimumWidth = 6;
-            see.Name = "see";
-            see.ReadOnly = true;
-            see.Resizable = DataGridViewTriState.True;
-            see.SortMode = DataGridViewColumnSortMode.Automatic;
-            see.Width = 125;
-            // 
-            // delete
-            // 
-            delete.HeaderText = "SUPPRIMER";
-            delete.Image = Properties.Resources.icons8_delete_201;
-            delete.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            delete.MinimumWidth = 6;
-            delete.Name = "delete";
-            delete.ReadOnly = true;
-            delete.Resizable = DataGridViewTriState.True;
-            delete.SortMode = DataGridViewColumnSortMode.Automatic;
-            delete.Width = 125;
-            // 
-            // pdf
-            // 
-            pdf.HeaderText = "PDF";
-            pdf.Image = Properties.Resources.icons8_pdf_20;
-            pdf.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            pdf.MinimumWidth = 6;
-            pdf.Name = "pdf";
-            pdf.ReadOnly = true;
-            pdf.Resizable = DataGridViewTriState.True;
-            pdf.SortMode = DataGridViewColumnSortMode.Automatic;
-            pdf.Width = 125;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -282,7 +286,7 @@
             dataGridViewTextBoxColumn2.MinimumWidth = 6;
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             dataGridViewTextBoxColumn2.ReadOnly = true;
-            dataGridViewTextBoxColumn2.Width = 125;
+            dataGridViewTextBoxColumn2.Width = 200;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -298,7 +302,7 @@
             dataGridViewTextBoxColumn4.MinimumWidth = 6;
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             dataGridViewTextBoxColumn4.ReadOnly = true;
-            dataGridViewTextBoxColumn4.Width = 200;
+            dataGridViewTextBoxColumn4.Width = 300;
             // 
             // see_d
             // 
@@ -323,7 +327,7 @@
             delete_d.Resizable = DataGridViewTriState.True;
             delete_d.SortMode = DataGridViewColumnSortMode.Automatic;
             delete_d.ToolTipText = "Supp.";
-            delete_d.Width = 125;
+            delete_d.Width = 200;
             // 
             // pdf_d
             // 
@@ -340,11 +344,11 @@
             // 
             // FactureList
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1029, 639);
+            ClientSize = new Size(1672, 1022);
             Controls.Add(tabControl1);
-            Margin = new Padding(3, 4, 3, 4);
+            Margin = new Padding(5, 6, 5, 6);
             Name = "FactureList";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "List Factures";

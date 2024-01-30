@@ -52,10 +52,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 3);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(5, 5);
+            pictureBox1.Margin = new Padding(5, 6, 5, 6);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(296, 113);
+            pictureBox1.Size = new Size(481, 181);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -63,29 +63,30 @@
             // nomPrenomtxt
             // 
             nomPrenomtxt.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            nomPrenomtxt.Location = new Point(475, 18);
-            nomPrenomtxt.Margin = new Padding(3, 4, 3, 4);
+            nomPrenomtxt.Location = new Point(772, 29);
+            nomPrenomtxt.Margin = new Padding(5, 6, 5, 6);
             nomPrenomtxt.Name = "nomPrenomtxt";
-            nomPrenomtxt.Size = new Size(331, 38);
+            nomPrenomtxt.Size = new Size(535, 56);
             nomPrenomtxt.TabIndex = 11;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(307, 18);
+            label4.Location = new Point(499, 29);
+            label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
-            label4.Size = new Size(162, 28);
+            label4.Size = new Size(259, 45);
             label4.TabIndex = 12;
             label4.Text = "Nom et Prenom";
             // 
             // TarifTxt
             // 
             TarifTxt.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            TarifTxt.Location = new Point(475, 65);
-            TarifTxt.Margin = new Padding(3, 4, 3, 4);
+            TarifTxt.Location = new Point(772, 104);
+            TarifTxt.Margin = new Padding(5, 6, 5, 6);
             TarifTxt.Name = "TarifTxt";
-            TarifTxt.Size = new Size(331, 38);
+            TarifTxt.Size = new Size(535, 56);
             TarifTxt.TabIndex = 13;
             TarifTxt.KeyPress += TarifTxt_KeyPress;
             // 
@@ -93,9 +94,10 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(305, 65);
+            label1.Location = new Point(496, 104);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(156, 28);
+            label1.Size = new Size(246, 45);
             label1.TabIndex = 14;
             label1.Text = "Tarif Journalier";
             // 
@@ -104,10 +106,10 @@
             saveBtn.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             saveBtn.Image = Properties.Resources.icons8_save_25;
             saveBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            saveBtn.Location = new Point(475, 107);
-            saveBtn.Margin = new Padding(3, 4, 3, 4);
+            saveBtn.Location = new Point(772, 171);
+            saveBtn.Margin = new Padding(5, 6, 5, 6);
             saveBtn.Name = "saveBtn";
-            saveBtn.Size = new Size(219, 61);
+            saveBtn.Size = new Size(356, 98);
             saveBtn.TabIndex = 15;
             saveBtn.Text = "SAUVGARDER";
             saveBtn.UseVisualStyleBackColor = true;
@@ -116,10 +118,10 @@
             // idTxt
             // 
             idTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            idTxt.Location = new Point(3, 120);
-            idTxt.Margin = new Padding(3, 4, 3, 4);
+            idTxt.Location = new Point(5, 192);
+            idTxt.Margin = new Padding(5, 6, 5, 6);
             idTxt.Name = "idTxt";
-            idTxt.Size = new Size(39, 34);
+            idTxt.Size = new Size(61, 50);
             idTxt.TabIndex = 16;
             idTxt.Visible = false;
             // 
@@ -149,8 +151,8 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             employeeList.DefaultCellStyle = dataGridViewCellStyle2;
             employeeList.EnableHeadersVisualStyles = false;
-            employeeList.Location = new Point(3, 176);
-            employeeList.Margin = new Padding(3, 4, 3, 4);
+            employeeList.Location = new Point(5, 282);
+            employeeList.Margin = new Padding(5, 6, 5, 6);
             employeeList.Name = "employeeList";
             employeeList.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -163,7 +165,7 @@
             employeeList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             employeeList.RowHeadersWidth = 51;
             employeeList.RowTemplate.Height = 35;
-            employeeList.Size = new Size(1097, 259);
+            employeeList.Size = new Size(1770, 376);
             employeeList.TabIndex = 17;
             employeeList.CellContentClick += employeeList_CellContentClick;
             // 
@@ -190,7 +192,7 @@
             tarif.MinimumWidth = 6;
             tarif.Name = "tarif";
             tarif.ReadOnly = true;
-            tarif.Width = 200;
+            tarif.Width = 400;
             // 
             // edit
             // 
@@ -202,7 +204,7 @@
             edit.ReadOnly = true;
             edit.Resizable = DataGridViewTriState.True;
             edit.SortMode = DataGridViewColumnSortMode.Automatic;
-            edit.Width = 125;
+            edit.Width = 300;
             // 
             // delete
             // 
@@ -214,13 +216,13 @@
             delete.ReadOnly = true;
             delete.Resizable = DataGridViewTriState.True;
             delete.SortMode = DataGridViewColumnSortMode.Automatic;
-            delete.Width = 125;
+            delete.Width = 300;
             // 
             // Employee
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1104, 441);
+            ClientSize = new Size(1781, 667);
             Controls.Add(employeeList);
             Controls.Add(idTxt);
             Controls.Add(saveBtn);
@@ -229,7 +231,8 @@
             Controls.Add(nomPrenomtxt);
             Controls.Add(label4);
             Controls.Add(pictureBox1);
-            MaximumSize = new Size(1122, 488);
+            Margin = new Padding(5, 5, 5, 5);
+            MaximumSize = new Size(1807, 738);
             Name = "Employee";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Employee";

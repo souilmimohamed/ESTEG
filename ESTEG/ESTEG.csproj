@@ -18,7 +18,7 @@
 	    <Guid>05bfd3f1-6319-4f30-b752-c7a22889bcc4</Guid>
 	    <Lcid>0</Lcid>
 	    <Isolated>false</Isolated>
-	    <EmbedInteropTypes>true</EmbedInteropTypes>
+	    <EmbedInteropTypes>True</EmbedInteropTypes>
 	  </COMReference>
 	  <COMReference Include="AxAcroPDFLib">
 	    <WrapperTool>aximp</WrapperTool>

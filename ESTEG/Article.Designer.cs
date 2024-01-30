@@ -44,10 +44,10 @@
             // qtyTxt
             // 
             qtyTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            qtyTxt.Location = new Point(6, 43);
-            qtyTxt.Margin = new Padding(3, 4, 3, 4);
+            qtyTxt.Location = new Point(10, 69);
+            qtyTxt.Margin = new Padding(5, 6, 5, 6);
             qtyTxt.Name = "qtyTxt";
-            qtyTxt.Size = new Size(150, 34);
+            qtyTxt.Size = new Size(241, 50);
             qtyTxt.TabIndex = 0;
             qtyTxt.KeyPress += qtyTxt_KeyPress;
             // 
@@ -55,9 +55,10 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(9, 12);
+            label1.Location = new Point(15, 19);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(95, 28);
+            label1.Size = new Size(149, 45);
             label1.TabIndex = 1;
             label1.Text = "Quantite";
             // 
@@ -65,39 +66,41 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(167, 12);
+            label2.Location = new Point(271, 19);
+            label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(126, 28);
+            label2.Size = new Size(200, 45);
             label2.TabIndex = 3;
             label2.Text = "Designation";
             // 
             // designationTxt
             // 
             designationTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            designationTxt.Location = new Point(163, 43);
-            designationTxt.Margin = new Padding(3, 4, 3, 4);
+            designationTxt.Location = new Point(265, 69);
+            designationTxt.Margin = new Padding(5, 6, 5, 6);
             designationTxt.Multiline = true;
             designationTxt.Name = "designationTxt";
-            designationTxt.Size = new Size(458, 189);
+            designationTxt.Size = new Size(742, 300);
             designationTxt.TabIndex = 2;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(629, 12);
+            label3.Location = new Point(1022, 19);
+            label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
-            label3.Size = new Size(65, 28);
+            label3.Size = new Size(107, 45);
             label3.TabIndex = 5;
             label3.Text = "PUHT";
             // 
             // puhtTxt
             // 
             puhtTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            puhtTxt.Location = new Point(625, 43);
-            puhtTxt.Margin = new Padding(3, 4, 3, 4);
+            puhtTxt.Location = new Point(1016, 69);
+            puhtTxt.Margin = new Padding(5, 6, 5, 6);
             puhtTxt.Name = "puhtTxt";
-            puhtTxt.Size = new Size(161, 34);
+            puhtTxt.Size = new Size(259, 50);
             puhtTxt.TabIndex = 4;
             puhtTxt.KeyPress += puhtTxt_KeyPress;
             // 
@@ -106,10 +109,10 @@
             validateBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             validateBtn.Image = Properties.Resources.icons8_check_25;
             validateBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            validateBtn.Location = new Point(625, 188);
-            validateBtn.Margin = new Padding(3, 4, 3, 4);
+            validateBtn.Location = new Point(1016, 301);
+            validateBtn.Margin = new Padding(5, 6, 5, 6);
             validateBtn.Name = "validateBtn";
-            validateBtn.Size = new Size(161, 44);
+            validateBtn.Size = new Size(262, 70);
             validateBtn.TabIndex = 11;
             validateBtn.Text = "Valider";
             validateBtn.UseVisualStyleBackColor = true;
@@ -118,10 +121,10 @@
             // idTxt
             // 
             idTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            idTxt.Location = new Point(6, 205);
-            idTxt.Margin = new Padding(3, 4, 3, 4);
+            idTxt.Location = new Point(10, 328);
+            idTxt.Margin = new Padding(5, 6, 5, 6);
             idTxt.Name = "idTxt";
-            idTxt.Size = new Size(39, 34);
+            idTxt.Size = new Size(61, 50);
             idTxt.TabIndex = 12;
             idTxt.Visible = false;
             // 
@@ -129,9 +132,10 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(625, 88);
+            label6.Location = new Point(1016, 141);
+            label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
-            label6.Size = new Size(63, 28);
+            label6.Size = new Size(100, 45);
             label6.TabIndex = 14;
             label6.Text = "Unite";
             // 
@@ -141,28 +145,28 @@
             uniteCbx.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             uniteCbx.FormattingEnabled = true;
             uniteCbx.Items.AddRange(new object[] { "Unite", "ENS", "ML", "M²", "M³" });
-            uniteCbx.Location = new Point(625, 120);
-            uniteCbx.Margin = new Padding(3, 4, 3, 4);
+            uniteCbx.Location = new Point(1016, 192);
+            uniteCbx.Margin = new Padding(5, 6, 5, 6);
             uniteCbx.Name = "uniteCbx";
-            uniteCbx.Size = new Size(161, 36);
+            uniteCbx.Size = new Size(259, 53);
             uniteCbx.TabIndex = 15;
             // 
             // rowTxt
             // 
             rowTxt.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            rowTxt.Location = new Point(51, 205);
-            rowTxt.Margin = new Padding(3, 4, 3, 4);
+            rowTxt.Location = new Point(83, 328);
+            rowTxt.Margin = new Padding(5, 6, 5, 6);
             rowTxt.Name = "rowTxt";
-            rowTxt.Size = new Size(39, 34);
+            rowTxt.Size = new Size(61, 50);
             rowTxt.TabIndex = 16;
             rowTxt.Visible = false;
             // 
             // Article
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(798, 245);
+            ClientSize = new Size(1297, 393);
             Controls.Add(rowTxt);
             Controls.Add(uniteCbx);
             Controls.Add(label6);
@@ -175,8 +179,8 @@
             Controls.Add(label1);
             Controls.Add(qtyTxt);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(3, 4, 3, 4);
-            MaximumSize = new Size(973, 292);
+            Margin = new Padding(5, 6, 5, 6);
+            MaximumSize = new Size(1323, 464);
             Name = "Article";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Article";

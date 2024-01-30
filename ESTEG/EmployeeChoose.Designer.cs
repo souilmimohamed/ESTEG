@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeChoose));
             employeeList = new DataGridView();
             id = new DataGridViewTextBoxColumn();
@@ -45,41 +45,41 @@
             employeeList.AllowUserToDeleteRows = false;
             employeeList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             employeeList.BackgroundColor = Color.White;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.Black;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = Color.Black;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            employeeList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Black;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            employeeList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             employeeList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             employeeList.Columns.AddRange(new DataGridViewColumn[] { id, nomPrenom, choose });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.Padding = new Padding(1);
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            employeeList.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.Padding = new Padding(1);
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            employeeList.DefaultCellStyle = dataGridViewCellStyle2;
             employeeList.EnableHeadersVisualStyles = false;
-            employeeList.Location = new Point(12, 13);
-            employeeList.Margin = new Padding(3, 4, 3, 4);
+            employeeList.Location = new Point(20, 21);
+            employeeList.Margin = new Padding(5, 6, 5, 6);
             employeeList.Name = "employeeList";
             employeeList.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            employeeList.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            employeeList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             employeeList.RowHeadersWidth = 51;
             employeeList.RowTemplate.Height = 35;
-            employeeList.Size = new Size(735, 414);
+            employeeList.Size = new Size(1194, 625);
             employeeList.TabIndex = 18;
             employeeList.CellContentClick += employeeList_CellContentClick;
             // 
@@ -98,7 +98,7 @@
             nomPrenom.MinimumWidth = 6;
             nomPrenom.Name = "nomPrenom";
             nomPrenom.ReadOnly = true;
-            nomPrenom.Width = 400;
+            nomPrenom.Width = 450;
             // 
             // choose
             // 
@@ -110,15 +110,16 @@
             choose.ReadOnly = true;
             choose.Resizable = DataGridViewTriState.True;
             choose.SortMode = DataGridViewColumnSortMode.Automatic;
-            choose.Width = 125;
+            choose.Width = 200;
             // 
             // EmployeeChoose
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(759, 440);
+            ClientSize = new Size(1220, 666);
             Controls.Add(employeeList);
-            MaximumSize = new Size(777, 487);
+            Margin = new Padding(5, 5, 5, 5);
+            MaximumSize = new Size(1246, 737);
             Name = "EmployeeChoose";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "EmployeeChoose";

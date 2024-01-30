@@ -34,9 +34,9 @@ namespace ESTEG
                     var report = new Infrastructure.Reportig.FastReport();
                     var file = report.GenerateDocumentReport(document, articles);
 
-                    Document doc = new Document();
-                    doc.SetDocument(file);
-                    doc.ShowDialog();
+                    var p = new Process();
+                    p.StartInfo = new ProcessStartInfo(file) { UseShellExecute = true };
+                    p.Start();
                 }
             }
             catch (Exception ex)
@@ -227,7 +227,7 @@ namespace ESTEG
         }
         public void InsertFacture()
         {
-            var num = Infrastructure.Data.Access.DocumentAccess.GetMaxId(Enums.DocumentType.facture.ToString());
+            var num = Infrastructure.Data.Access.DocumentAccess.GetMaxId(typeCbx.Text.ToLower());
             var entete = new Infrastructure.Data.Entities.DocumentEntity
             {
                 Type = typeCbx.Text.ToLower(),

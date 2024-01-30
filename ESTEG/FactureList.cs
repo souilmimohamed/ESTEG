@@ -57,9 +57,9 @@ namespace ESTEG
 
                     var report = new Infrastructure.Reportig.FastReport();
                     var file = report.GenerateDocumentReport(document, articles);
-                    Document doc = new Document();
-                    doc.SetDocument(file);
-                    doc.ShowDialog();
+                    var p = new Process();
+                    p.StartInfo = new ProcessStartInfo(file) { UseShellExecute = true };
+                    p.Start();
                 }
             }
         }
@@ -103,9 +103,9 @@ namespace ESTEG
 
                     var report = new Infrastructure.Reportig.FastReport();
                     var file = report.GenerateDocumentReport(document, articles);
-                    Document doc = new Document();
-                    doc.SetDocument(file);
-                    doc.ShowDialog();
+                    var p = new Process();
+                    p.StartInfo = new ProcessStartInfo(file) { UseShellExecute = true };
+                    p.Start();
                 }
             }
         }
