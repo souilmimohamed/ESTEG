@@ -9,7 +9,7 @@
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            if (!precenseChk.Checked || lieuTxt.Text.StringIsNullOrEmptyOrWhiteSpaces())
+            if (precenseChk.Checked && lieuTxt.Text.StringIsNullOrEmptyOrWhiteSpaces())
             {
                 MessageBox.Show(this, "Veullier marquer la presence et indiquer le lieu", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

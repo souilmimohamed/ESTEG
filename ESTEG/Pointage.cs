@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using Infrastructure.Data.Entities;
+using System.Diagnostics;
 using System.Globalization;
 using System.Xml.Linq;
 
@@ -48,6 +49,7 @@ namespace ESTEG
                 var idEmployee = Convert.ToInt32(idText.Text);
                 var mois = Convert.ToInt32(moisCbx.SelectedValue);
                 var annee = Convert.ToInt32(anneeCbx.SelectedValue);
+                var monthDays = DateTime.DaysInMonth(annee, mois);
 
                 var employee = Infrastructure.Data.Access.EmployeeAccess.Get(idEmployee);
                 var pointage = Infrastructure.Data.Access.PointageAccess.GetByEmployeeIdAndYear(idEmployee, annee);
@@ -69,13 +71,25 @@ namespace ESTEG
                     TotalAvance = totalAvance,
                     TotalParMois = totalParMois,
                 };
-                var details = pointage?.Select(p => new Infrastructure.Data.Entities.PointageDetails
+                var details = new List<PointageDetails>();
+                for (var i = 1; i <= monthDays; i++)
                 {
-                    Avance = p.Avance,
-                    Date = $"{(p.Jour <= 9 ? $"0{p.Jour}" : p.Jour)}/{(p.Mois <= 9 ? $"0{p.Mois}" : p.Mois)}/{p.Annee}",
-                    Divers = p.Divers,
-                    Lieu = p.Lieu,
-                }).ToList();
+                    var point = pointage?.FirstOrDefault(x => x.Jour == i && x.Mois == mois && x.Annee == annee);
+                    details.Add(new PointageDetails
+                    {
+                        Avance = point?.Avance ?? 0,
+                        Date = $"{i}/{mois}/{annee}",
+                        Divers = point?.Divers,
+                        Lieu = point?.Lieu
+                    });
+                }
+                //var details = pointage?.Select(p => new Infrastructure.Data.Entities.PointageDetails
+                //{
+                //    Avance = p.Avance,
+                //    Date = $"{(p.Jour <= 9 ? $"0{p.Jour}" : p.Jour)}/{(p.Mois <= 9 ? $"0{p.Mois}" : p.Mois)}/{p.Annee}",
+                //    Divers = p.Divers,
+                //    Lieu = p.Lieu,
+                //}).ToList();
 
                 var report = new Infrastructure.Reportig.FastReport();
                 var file = report.GeneratePointageReport(sommaire, details);
@@ -142,10 +156,10 @@ namespace ESTEG
                 //
                 Button button = new Button();
                 button.Text = $"{i}{(point != null && point.Avance > 0 ? $"\n avance +{point.Avance}" : "")}";
-                button.Width = 120;
+                button.Width = 130;
                 button.Height = 70;
                 button.Font = new Font(button.Font.Name, button.Font.Size, FontStyle.Bold);
-                button.Image = point != null ? greenImage : redImage;
+                button.Image = (point != null && point.Presence) ? greenImage : redImage;
                 button.ImageAlign = ContentAlignment.TopLeft;
                 this.flowLayoutPanel1.Controls.Add(button);
                 button.Click += (e, s) =>
@@ -157,24 +171,23 @@ namespace ESTEG
                         saisie.SetInfo(day, month, year, employee.Id);
                     saisie.ShowDialog();
                 };
-                //
-                var pointageMois = pointage?.Where(p => p.Annee == year && p.Mois == month).ToList();
-                var jourTravaille = pointageMois?.Count ?? 0;
-                var totalMois = employee.TarifJounalier * jourTravaille;
-                var totalAvance = pointageMois?.Sum(p => p.Avance) ?? 0;
-                var totalAPayer = totalMois - totalAvance;
-                tarifLbl.Text = employee.TarifJounalier.ToString();
-                totalAvanceLbl.Text = totalAvance.ToString("#,#");
-                totalMoisLbl.Text = (totalMois).ToString("#,#");
-                joursTravalieeLbl.Text = jourTravaille.ToString();
-                totalApayerLbl.Text = totalAPayer.ToString("#,#");
-
-                if (totalAPayer < 0)
-                    totalApayerLbl.BackColor = Color.Red;
-                else
-                    totalApayerLbl.BackColor = Color.Green;
-                totalApayerLbl.ForeColor = Color.White;
             }
+            var pointageMois = pointage?.Where(p => p.Annee == year && p.Mois == month).ToList();
+            var jourTravaille = pointageMois?.Count ?? 0;
+            var totalMois = employee.TarifJounalier * jourTravaille;
+            var totalAvance = pointageMois?.Sum(p => p.Avance) ?? 0;
+            var totalAPayer = totalMois - totalAvance;
+            tarifLbl.Text = employee.TarifJounalier.ToString();
+            totalAvanceLbl.Text = totalAvance.ToString("#,#");
+            totalMoisLbl.Text = (totalMois).ToString("#,#");
+            joursTravalieeLbl.Text = jourTravaille.ToString();
+            totalApayerLbl.Text = totalAPayer.ToString("#,#");
+
+            if (totalAPayer < 0)
+                totalApayerLbl.BackColor = Color.Red;
+            else
+                totalApayerLbl.BackColor = Color.Green;
+            totalApayerLbl.ForeColor = Color.White;
         }
         #endregion
     }

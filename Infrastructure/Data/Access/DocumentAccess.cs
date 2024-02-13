@@ -332,7 +332,7 @@ namespace Infrastructure.Data.Access
             using (var sqlConnection = new OleDbConnection(ConfigurationManager.ConnectionStrings["connectionstringdev"].ConnectionString))
             {
                 sqlConnection.Open();
-                string query = $@"SELECT IIf(IsNull(Max(Id)), 0, Max(Id)) FROM Document WHERE Type=@Type";
+                string query = $@"SELECT COUNT(Id) FROM Document WHERE Type=@Type";
                 var sqlCommand = new OleDbCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("Type", type);
                 new OleDbDataAdapter(sqlCommand).Fill(dataTable);

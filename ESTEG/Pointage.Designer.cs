@@ -135,6 +135,7 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.BorderStyle = BorderStyle.FixedSingle;
             flowLayoutPanel1.Location = new Point(496, 254);
             flowLayoutPanel1.Margin = new Padding(5);
@@ -302,7 +303,7 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label9);
             panel1.Controls.Add(totalApayerLbl);
@@ -315,7 +316,7 @@
             panel1.Location = new Point(1474, 1367);
             panel1.Margin = new Padding(5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(535, 261);
+            panel1.Size = new Size(535, 268);
             panel1.TabIndex = 36;
             // 
             // menuBtn
