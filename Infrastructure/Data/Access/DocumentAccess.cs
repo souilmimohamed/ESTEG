@@ -326,13 +326,26 @@ namespace Infrastructure.Data.Access
             return -1;
         }
         #region Custom Methods
-        public static int GetMaxId(string type)
+        public static int GetMaxCount(string type)
         {
             var dataTable = new DataTable();
             using (var sqlConnection = new OleDbConnection(ConfigurationManager.ConnectionStrings["connectionstringdev"].ConnectionString))
             {
                 sqlConnection.Open();
                 string query = $@"SELECT COUNT(Id) FROM Document WHERE Type=@Type";
+                var sqlCommand = new OleDbCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("Type", type);
+                new OleDbDataAdapter(sqlCommand).Fill(dataTable);
+            }
+            return Convert.ToInt32(dataTable.Rows[0][0]);
+        }
+        public static int GetMaxId(string type)
+        {
+            var dataTable = new DataTable();
+            using (var sqlConnection = new OleDbConnection(ConfigurationManager.ConnectionStrings["connectionstringdev"].ConnectionString))
+            {
+                sqlConnection.Open();
+                string query = $@"SELECT MAX(Id) FROM Document WHERE Type=@Type";
                 var sqlCommand = new OleDbCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("Type", type);
                 new OleDbDataAdapter(sqlCommand).Fill(dataTable);

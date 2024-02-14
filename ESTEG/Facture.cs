@@ -227,7 +227,7 @@ namespace ESTEG
         }
         public void InsertFacture()
         {
-            var num = Infrastructure.Data.Access.DocumentAccess.GetMaxId(typeCbx.Text.ToLower());
+            var num = Infrastructure.Data.Access.DocumentAccess.GetMaxCount(typeCbx.Text.ToLower());
             var entete = new Infrastructure.Data.Entities.DocumentEntity
             {
                 Type = typeCbx.Text.ToLower(),
