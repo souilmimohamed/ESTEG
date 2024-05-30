@@ -29,6 +29,29 @@ namespace Infrastructure.Data.Access
                 return new List<Infrastructure.Data.Entities.ArticleEntity>();
             }
         }
+        public static Infrastructure.Data.Entities.ArticleEntity Get(int id)
+        {
+            var dataTable = new DataTable();
+            using (var sqlConnection = new OleDbConnection(ConfigurationManager.ConnectionStrings["connectionstringdev"].ConnectionString))
+            {
+                sqlConnection.Open();
+                string query = "SELECT * FROM [Article] WHERE [Id]=@Id";
+                var sqlCommand = new OleDbCommand(query, sqlConnection);
+                sqlCommand.Parameters.AddWithValue("Id", id);
+
+                new OleDbDataAdapter(sqlCommand).Fill(dataTable);
+
+            }
+
+            if (dataTable.Rows.Count > 0)
+            {
+                return new Infrastructure.Data.Entities.ArticleEntity(dataTable.Rows[0]);
+            }
+            else
+            {
+                return null;
+            }
+        }
         public static int Insert(Infrastructure.Data.Entities.ArticleEntity item)
         {
             int response = int.MinValue;

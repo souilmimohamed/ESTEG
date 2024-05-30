@@ -274,6 +274,7 @@ namespace ESTEG
                 Id = Convert.ToInt32(idTxt.Text),
                 Projets = projetsTxt.Text,
                 BC = bcTxt.Text,
+                Timbre = Convert.ToInt32(timbreCbx.Text)
             };
             Infrastructure.Data.Access.DocumentAccess.Update(entete);
             foreach (DataGridViewRow row in facturePositions.Rows)
@@ -289,7 +290,11 @@ namespace ESTEG
                     PTHT = Convert.ToInt32(row.Cells[8].Value.ToString().ReplaceSpaces()),
                     IdFacture = Convert.ToInt32(idTxt.Text),
                 };
-                Infrastructure.Data.Access.ArticlesAccess.Update(article);
+                var check_article = Infrastructure.Data.Access.ArticlesAccess.Get(article.Id);
+                if (check_article != null)
+                    Infrastructure.Data.Access.ArticlesAccess.Update(article);
+                else
+                    Infrastructure.Data.Access.ArticlesAccess.Insert(article);
             }
             MessageBox.Show(this, "Document modifiee", "SUCCESS", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
