@@ -12,8 +12,8 @@ namespace ESTEG
         private void FactureList_Load(object sender, EventArgs e)
         {
             var list = Infrastructure.Data.Access.DocumentAccess.Get();
-            var factures = list.Where(l => l.Type == Enums.DocumentType.facture.ToString()).ToList();
-            var devis = list.Where(l => l.Type == Enums.DocumentType.devis.ToString()).ToList();
+            var factures = list.Where(l => l.Type == Enums.DocumentType.facture.ToString()).OrderBy(x => x.NumId).ToList();
+            var devis = list.Where(l => l.Type == Enums.DocumentType.devis.ToString()).OrderBy(x => x.NumId).ToList();
             FillFactures(factures);
             FillDevis(devis);
         }

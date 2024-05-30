@@ -57,11 +57,11 @@ namespace Infrastructure.Data.Access
                 sqlConnection.Open();
                 var sqlTransaction = sqlConnection.BeginTransaction();
 
-                string query = "INSERT INTO [Document] ([Type],[Num],[DateDocument],[Client],[Adresse],[MF],[TVA],[Timbre],[Projets],[BC]) VALUES (@Type,@Num,@DateDocument,@Client,@Adresse,@MF,@TVA,@Timbre,@Projets,@BC); ";
+                string query = "INSERT INTO [Document] ([NumId],[Type],[Num],[DateDocument],[Client],[Adresse],[MF],[TVA],[Timbre],[Projets],[BC]) VALUES (@NumId,@Type,@Num,@DateDocument,@Client,@Adresse,@MF,@TVA,@Timbre,@Projets,@BC); ";
 
                 using (var sqlCommand = new OleDbCommand(query, sqlConnection, sqlTransaction))
                 {
-
+                    sqlCommand.Parameters.AddWithValue(parameterName: "NumId", item.NumId == null ? (object)DBNull.Value : item.NumId);
                     sqlCommand.Parameters.AddWithValue("Type", item.Type == null ? (object)DBNull.Value : item.Type);
                     sqlCommand.Parameters.AddWithValue("Num", item.Num == null ? (object)DBNull.Value : item.Num);
                     sqlCommand.Parameters.AddWithValue("DateDocument", item.DateDocument == null ? (object)DBNull.Value : item.DateDocument);
@@ -80,81 +80,6 @@ namespace Infrastructure.Data.Access
 
                 return response;
             }
-        }
-        public static int Insert(List<Infrastructure.Data.Entities.DocumentEntity> items)
-        {
-            if (items != null && items.Count > 0)
-            {
-                int maxParamsNumber = MAX_BATCH_SIZE / 30; // Nb params per query
-                int results = 0;
-                if (items.Count <= maxParamsNumber)
-                {
-                    results = insert(items);
-                }
-                else
-                {
-                    int batchNumber = items.Count / maxParamsNumber;
-                    for (int i = 0; i < batchNumber; i++)
-                    {
-                        results += insert(items.GetRange(i * maxParamsNumber, maxParamsNumber));
-                    }
-                    results += insert(items.GetRange(batchNumber * maxParamsNumber, items.Count - batchNumber * maxParamsNumber));
-                }
-                return results;
-            }
-
-            return -1;
-        }
-        private static int insert(List<Infrastructure.Data.Entities.DocumentEntity> items)
-        {
-            if (items != null && items.Count > 0)
-            {
-                int results = -1;
-                using (var sqlConnection = new OleDbConnection(ConfigurationManager.ConnectionStrings["connectionstringdev"].ConnectionString))
-                {
-                    sqlConnection.Open();
-                    string query = "";
-                    var sqlCommand = new OleDbCommand(query, sqlConnection);
-
-                    int i = 0;
-                    foreach (var item in items)
-                    {
-                        i++;
-                        query += " INSERT INTO [Document] ([Type],[Num],[DateDocument],[Client],[Adresse],[MF],[TVA],[Timbre],[Projets],[BC]) VALUES ( "
-
-                            + "@Type" + i + ","
-                            + "@Num" + i + ","
-                            + "@DateDocument" + i + ","
-                            + "@Client" + i + ","
-                            + "@Adresse" + i + ","
-                            + "@TVA" + i + ","
-                            + "@MF" + i + ","
-                            + "@Timbre" + i + ","
-                            + "@Projets" + i + ","
-                            + "@BC" + i
-                            + "); ";
-
-                        sqlCommand.Parameters.AddWithValue("Type", item.Type == null ? (object)DBNull.Value : item.Type);
-                        sqlCommand.Parameters.AddWithValue("Num" + i, item.Num == null ? (object)DBNull.Value : item.Num);
-                        sqlCommand.Parameters.AddWithValue("DateDocument" + i, item.DateDocument == null ? (object)DBNull.Value : item.DateDocument);
-                        sqlCommand.Parameters.AddWithValue("Client" + i, item.Client == null ? (object)DBNull.Value : item.Client);
-                        sqlCommand.Parameters.AddWithValue("Adresse" + i, item.Adresse == null ? (object)DBNull.Value : item.Adresse);
-                        sqlCommand.Parameters.AddWithValue("MF" + i, item.MF == null ? (object)DBNull.Value : item.MF);
-                        sqlCommand.Parameters.AddWithValue("TVA" + i, item.TVA == null ? (object)DBNull.Value : item.TVA);
-                        sqlCommand.Parameters.AddWithValue("Timbre" + i, item.Timbre == null ? (object)DBNull.Value : item.Timbre);
-                        sqlCommand.Parameters.AddWithValue("Projets" + i, item.Projets == null ? (object)DBNull.Value : item.Projets);
-                        sqlCommand.Parameters.AddWithValue("BC" + i, item.BC == null ? (object)DBNull.Value : item.BC);
-                    }
-
-                    sqlCommand.CommandText = query;
-
-                    results = sqlCommand.ExecuteNonQuery();
-                }
-
-                return results;
-            }
-
-            return -1;
         }
         public static int Update(Infrastructure.Data.Entities.DocumentEntity item)
         {
@@ -182,83 +107,6 @@ namespace Infrastructure.Data.Access
 
             return results;
         }
-        public static int Update(List<Infrastructure.Data.Entities.DocumentEntity> items)
-        {
-            if (items != null && items.Count > 0)
-            {
-                int maxParamsNumber = MAX_BATCH_SIZE / 30; // Nb params per query
-                int results = 0;
-                if (items.Count <= maxParamsNumber)
-                {
-                    results = update(items);
-                }
-                else
-                {
-                    int batchNumber = items.Count / maxParamsNumber;
-                    for (int i = 0; i < batchNumber; i++)
-                    {
-                        results += update(items.GetRange(i * maxParamsNumber, maxParamsNumber));
-                    }
-                    results += update(items.GetRange(batchNumber * maxParamsNumber, items.Count - batchNumber * maxParamsNumber));
-                }
-
-                return results;
-            }
-
-            return -1;
-        }
-        private static int update(List<Infrastructure.Data.Entities.DocumentEntity> items)
-        {
-            if (items != null && items.Count > 0)
-            {
-                int results = -1;
-                using (var sqlConnection = new OleDbConnection(ConfigurationManager.ConnectionStrings["connectionstringdev"].ConnectionString))
-                {
-                    sqlConnection.Open();
-                    string query = "";
-                    var sqlCommand = new OleDbCommand(query, sqlConnection);
-
-                    int i = 0;
-                    foreach (var item in items)
-                    {
-                        i++;
-                        query += " UPDATE [Document] SET "
-
-                            + "[Type]=@Type" + i + ","
-                            + "[Num]=@Num" + i + ","
-                            + "[DateDocument]=@DateDocument" + i + ","
-                            + "[Client]=@Client" + i + ","
-                            + "[Adresse]=@Adresse" + i + ","
-                            + "[TVA]=@TVA" + i + ","
-                            + "[Timbre]=@Timbre" + i + ","
-                            + "[Projets]=@Projets" + i + ","
-                            + "[BC]=@BC" + i + ","
-                            + "[MF]=@MF" + i + " WHERE [Id]=@Id" + i
-                            + "; ";
-
-                        sqlCommand.Parameters.AddWithValue("Id" + i, item.Id);
-                        sqlCommand.Parameters.AddWithValue("Type" + i, item.Type == null ? (object)DBNull.Value : item.Type);
-                        sqlCommand.Parameters.AddWithValue("Num" + i, item.Num == null ? (object)DBNull.Value : item.Num);
-                        sqlCommand.Parameters.AddWithValue("DateDocument" + i, item.DateDocument == null ? (object)DBNull.Value : item.DateDocument);
-                        sqlCommand.Parameters.AddWithValue("Client" + i, item.Client == null ? (object)DBNull.Value : item.Client);
-                        sqlCommand.Parameters.AddWithValue("Adresse" + i, item.Adresse == null ? (object)DBNull.Value : item.Adresse);
-                        sqlCommand.Parameters.AddWithValue("MF" + i, item.MF == null ? (object)DBNull.Value : item.MF);
-                        sqlCommand.Parameters.AddWithValue("TVA" + i, item.TVA == null ? (object)DBNull.Value : item.TVA);
-                        sqlCommand.Parameters.AddWithValue("Timbre" + i, item.Timbre == null ? (object)DBNull.Value : item.Timbre);
-                        sqlCommand.Parameters.AddWithValue("Projets" + i, item.Projets == null ? (object)DBNull.Value : item.Projets);
-                        sqlCommand.Parameters.AddWithValue("BC" + i, item.BC == null ? (object)DBNull.Value : item.BC);
-                    }
-
-                    sqlCommand.CommandText = query;
-
-                    results = sqlCommand.ExecuteNonQuery();
-                }
-
-                return results;
-            }
-
-            return -1;
-        }
         public static int Delete(int id)
         {
             int results = -1;
@@ -274,57 +122,6 @@ namespace Infrastructure.Data.Access
 
             return results;
         }
-        public static int Delete(List<int> ids)
-        {
-            if (ids != null && ids.Count > 0)
-            {
-                int maxParamsNumber = MAX_BATCH_SIZE;
-                int results = 0;
-                if (ids.Count <= maxParamsNumber)
-                {
-                    results = delete(ids);
-                }
-                else
-                {
-                    int batchNumber = ids.Count / maxParamsNumber;
-                    for (int i = 0; i < batchNumber; i++)
-                    {
-                        results += delete(ids.GetRange(i * maxParamsNumber, maxParamsNumber));
-                    }
-                    results += delete(ids.GetRange(batchNumber * maxParamsNumber, ids.Count - batchNumber * maxParamsNumber));
-                }
-            }
-            return -1;
-        }
-        private static int delete(List<int> ids)
-        {
-            if (ids != null && ids.Count > 0)
-            {
-                int results = -1;
-                using (var sqlConnection = new OleDbConnection(ConfigurationManager.ConnectionStrings["connectionstringdev"].ConnectionString))
-                {
-                    sqlConnection.Open();
-                    var sqlCommand = new OleDbCommand();
-                    sqlCommand.Connection = sqlConnection;
-
-                    string queryIds = string.Empty;
-                    for (int i = 0; i < ids.Count; i++)
-                    {
-                        queryIds += "@Id" + i + ",";
-                        sqlCommand.Parameters.AddWithValue("Id" + i, ids[i]);
-                    }
-                    queryIds = queryIds.TrimEnd(',');
-
-                    string query = "DELETE FROM [Document] WHERE [Id] IN (" + queryIds + ")";
-                    sqlCommand.CommandText = query;
-
-                    results = sqlCommand.ExecuteNonQuery();
-                }
-
-                return results;
-            }
-            return -1;
-        }
         #region Custom Methods
         public static int GetMaxCount(string type)
         {
@@ -332,7 +129,7 @@ namespace Infrastructure.Data.Access
             using (var sqlConnection = new OleDbConnection(ConfigurationManager.ConnectionStrings["connectionstringdev"].ConnectionString))
             {
                 sqlConnection.Open();
-                string query = $@"SELECT IIf(MAX([Id]) Is Null, 0, MAX([Id])) FROM Document where Type=@type";
+                string query = $@"SELECT IIf(MAX([NumId]) Is Null, 0, MAX([NumId])) FROM Document where Type=@type";
                 var sqlCommand = new OleDbCommand(query, sqlConnection);
                 sqlCommand.Parameters.AddWithValue("Type", type);
                 new OleDbDataAdapter(sqlCommand).Fill(dataTable);

@@ -230,6 +230,7 @@ namespace ESTEG
             var num = Infrastructure.Data.Access.DocumentAccess.GetMaxCount(typeCbx.Text.ToLower());
             var entete = new Infrastructure.Data.Entities.DocumentEntity
             {
+                NumId = num + 1,
                 Type = typeCbx.Text.ToLower(),
                 Num = $"{num + 1}/{DateTime.Now.Year}",
                 DateDocument = dateDte.Value.Date,

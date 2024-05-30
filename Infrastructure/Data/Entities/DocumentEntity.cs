@@ -6,6 +6,7 @@ namespace Infrastructure.Data.Entities
     public class DocumentEntity
     {
         public int Id { get; set; }
+        public int NumId { get; set; }
         public string Type { get; set; }
         public string Num { get; set; }
         public DateTime DateDocument { get; set; }
@@ -27,6 +28,7 @@ namespace Infrastructure.Data.Entities
         public DocumentEntity(DataRow dataRow)
         {
             Id = Convert.ToInt32(dataRow["Id"]);
+            NumId = Convert.ToInt32(dataRow["NumId"]);
             Type = Convert.ToString(dataRow["Type"]);
             Num = Convert.ToString(dataRow["Num"]);
             DateDocument = Convert.ToDateTime(dataRow["DateDocument"]);
